@@ -1,3 +1,6 @@
 */**/.o
 */**.swo
 */**/.swp
+.vscode
+*/.vscode
+*/**/.vscode
