@@ -1,10 +1,11 @@
 NAME = phonebook 
 
 SRCS =	main.cpp \
+		util.cpp \
 		Contact.cpp \
 		Phonebook.cpp \
 
-INC = header.h 
+INC = header.hpp 
 
 CC = clang++
 

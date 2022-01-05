@@ -1,7 +1,7 @@
 #ifndef CONTACT_H
 # define CONTACT_H
 
-# include "header.h"
+# include "header.hpp"
 
 class Contact
 {
