@@ -143,7 +143,7 @@ int main(void)
 
 	while (true)
 	{
-		std::cout  << "\033[1;34mSELECT AN OPERATION: \033[0m" << std::endl;
+		std::cout  << "\033[1;34mSELECT AN OPERATION: \033[0m";
 		display_usage();
 		getline(std::cin, input);
 		input = str_toupper(input);			
