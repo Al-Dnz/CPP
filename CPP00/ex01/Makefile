@@ -8,7 +8,7 @@ INC = header.h
 
 CC = clang++
 
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra #-fsanitize=address
 
 OBJ = $(SRCS:.cpp=.o)
 

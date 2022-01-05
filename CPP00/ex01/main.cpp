@@ -1,28 +1,54 @@
 #include "header.h"
 
-// int 	find_str_index(char str[], char arr[4][])
-// {
-// 	int	i;
-	
-// 	for (i = 0; arr[i]; i++)
-// 	{
-// 		if (strcmp(str, arr[i]) == 0)
-// 			return (i);
-// 	}
-// 	return (-1);
-// }
+void	print_line(int n, char c)
+{
+	int i = 1;
+
+	while (i++ <= n)
+		std::cout << c;
+	std::cout << std::endl;
+}
+
+std::string trim_space(std::string str)
+{
+	int i;
+	int begin = 0;
+	int end = str.length() - 1;
+
+	while ((str[begin] >= 9 && str[begin] <= 11) || str[begin] == 32)
+		begin++;
+	while ((str[end] >= 9 && str[end] <= 11) || str[end] == 32)
+		end--;
+	str = str.substr(begin, end + 1 - begin);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '	')
+			str[i] = ' ';
+		i++;
+	}
+	return (str);
+}
+
+std::string str_toupper(std::string str)
+{
+	std::string str_bis;
+	int i = 0;
+    while (str[i]) 
+		str_bis += std::toupper((unsigned char)str[i++]);
+	return (str_bis);
+}
 
 void	display_usage(void)
 {
 	std::cout << "[\033[1;33mADD\033[0m]";
 	std::cout << "[\033[1;33mSEARCH\033[0m]";
-	std::cout << "[\033[1;33mEXIT\033[0m]" << std::endl;
-	
+	std::cout << "[\033[1;33mEXIT\033[0m]" << std::endl;	
 }
 
 int	get_data(std::string& input, std::string data_kind)
 {
-	data_kind = "\033[1;36m" +data_kind + "\033[0m";
+	data_kind = "\033[1;36m" + data_kind + "\033[0m";
 	std::cout << "\033[1;35m=>Set Contact \033[0m" << data_kind << std::endl;
 	std::getline(std::cin, input);
 	if (std::cin.eof())
@@ -30,115 +56,118 @@ int	get_data(std::string& input, std::string data_kind)
 	return (1);
 }
 
-void	print_phonebook(Phonebook phonebook)
-{
-	int i = -1;
-	while (++i < phonebook.contact_number)
-		phonebook.contact_tab[i].print_contact_form();
-}
-
 Contact	create_contact()
 {
 	Contact contact;
 	std::string str;
 	bool valid_step;
-	std::string str[5] = {"first_name", "last_name", "nickname", "phone_number", "dark_scret"};
+	std::string data_kind[5] = {"first_name", "last_name", "nickname", "phone_number", "dark_scret"};
 	std::string default_str[5] = {"xxxxxxxxxx", "xxxxxxxxxx", "xxxxxxxxxx", "0000000000", "xxxxxxxxxx"};
-	int	function[5](std::str) = 
+	setter method[5] = 
 	{
-		contact.set_first_name, 
-		contact.set_last_name,
-		contact.set_nickname,
-		contact.set_phone_number,
-		contact.set_dark_secret
-	}
-
-	valid_step = false;
-	while (valid_step == false)
+		&Contact::set_first_name, 
+		&Contact::set_last_name,
+		&Contact::set_nickname,
+		&Contact::set_phone_number,
+		&Contact::set_dark_secret
+	};
+	int i = 0;
+	while (i < 5)
 	{
-		if (!get_data(str, "first name"))
-			str = "xxxxxxxxxx";
-		if (contact.set_first_name(str))
-			valid_step = true;
-		str.clear();	
+		valid_step = false;
+		while (valid_step == false)
+		{
+			if (!get_data(str, data_kind[i]))
+				str = default_str[i];
+			if ((contact.*method[i])(str))
+				valid_step = true;
+			str.clear();	
+		}
+		valid_step = false;
+		i++;
 	}
-	valid_step = false;
-
-	while (valid_step == false)
-	{
-		if (!get_data(str, "last name"))
-			str = "xxxxxxxxxx";
-		if(contact.set_last_name(str))
-			valid_step = true;
-		str.clear();
-	}
-	valid_step = false;
-
-	while (valid_step == false)
-	{
-		if (!get_data(str, "nickname"))
-			str = "xxxxxxxxxx";
-		if (contact.set_nickname(str))
-			valid_step = true;
-		str.clear();
-	}
-	valid_step = false;
-
-	while (valid_step == false)
-	{
-		
-		if(!get_data(str, "phone number"))
-			str = "0000000000";
-		if(contact.set_phone_number(str))
-			valid_step = true;
-		str.clear();
-	}
-	valid_step = false;
-
-	while (valid_step == false)
-	{
-		if(!get_data(str, "dark secret"))
-			str = "xxxxxxxxxx";
-		if (contact.set_dark_secret(str))
-			valid_step = true;
-		str.clear();
-	}
-	valid_step = false;
-
 	return(contact);
+}
+
+void	select_contact(Phonebook phonebook)
+{
+	std::string input;
+	bool error;
+	int index;
+	int i;
+
+	error = true;
+	while (error == true)
+	{
+		i = 0;
+		std::cout << "\033[1;35m=>Select Contact Index \033[0m"<< std::endl;
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			exit(1);
+		input = trim_space(input);
+		while (input[i])
+		{
+			error = false;
+			if (!std::isdigit(input[i]))
+			{
+				error = true;
+				input.clear();
+				std::cout << "\033[1;31mcontact index is not valid\033[0m";
+				std::cout << "\033[1;31m [tape 0 to quit]\033[0m" << std::endl;
+				break;
+			}
+			i++;
+		}
+		if (error == false)
+		{
+			index = std::stoi(input);
+			if (index == 0)
+				return ;
+			if (index < 1 || index > phonebook.contact_number)
+			{
+				std::cout << "\033[1;31mcontact does not exist at this index\033[0m";
+				std::cout << "\033[1;31m [tape 0 to quit]\033[0m" << std::endl;
+				error = true;
+			}
+				
+		}
+	} 
+	phonebook.contact_tab[index - 1].print_contact_card();
 }
 
 int main(void)
 {
-	
 	std::string			input;
 	Phonebook			phonebook;
 	int					index = 0;
 
 	while (true)
 	{
-		std::cout  << "\033[1;34mSELECT AN OPERATION: \033[0m" << std::uppercase;
+		std::cout  << "\033[1;34mSELECT AN OPERATION: \033[0m" << std::endl;
 		display_usage();
-		getline(std::cin, input);			
+		getline(std::cin, input);
+		input = str_toupper(input);			
 		if (input.compare("EXIT") == 0 || std::cin.eof())
 			break ;
 		else if (input.compare("ADD") == 0)
 		{
 			if (index < 4)
 			{
-				phonebook.contact_tab[index++] = create_contact();
-				std::cout << phonebook.contact_number++ << std::endl;
+				phonebook.contact_tab[index] = create_contact();
+				phonebook.contact_tab[index].set_index(index + 1);
+				phonebook.contact_number++;
+				index++;
 			}
 			else
 				std::cout << "phonebook is full" << std::endl;
 		}	
 		else if (input.compare("SEARCH") == 0)
-			print_phonebook(phonebook);
+		{
+			phonebook.print();
+			select_contact(phonebook);
+		}
 		else
 			std::cout << "\033[1;31mOPERATION NOT PERMITTED\033[0m" << std::endl;
-
 	}
-	
-	// delete &phonebook;
 	return (0);
 }
