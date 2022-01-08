@@ -1,6 +1,5 @@
 #include "header.hpp"
 
-
 void	display_usage(void)
 {
 	std::cout << "[\033[1;33mADD\033[0m]";
@@ -90,8 +89,7 @@ void	select_contact(Phonebook phonebook)
 				std::cout << "\033[1;31mcontact does not exist at this index\033[0m";
 				std::cout << "\033[1;31m [tape 0 to quit]\033[0m" << std::endl;
 				error = true;
-			}
-				
+			}		
 		}
 	} 
 	phonebook.contact_tab[index - 1].print_contact_card();
@@ -113,7 +111,7 @@ int main(void)
 			break ;
 		else if (input.compare("ADD") == 0)
 		{
-			if (index < 4)
+			if (index < 8)
 			{
 				phonebook.contact_tab[index] = create_contact();
 				phonebook.contact_tab[index].set_index(index + 1);
@@ -121,7 +119,7 @@ int main(void)
 				index++;
 			}
 			else
-				std::cout << "phonebook is full" << std::endl;
+				std::cout << "\033[1;31mphonebook is full\033[0m" << std::endl;
 		}	
 		else if (input.compare("SEARCH") == 0)
 		{

@@ -41,6 +41,7 @@ int		Contact::set_phone_number(std::string input)
 	int i;
 	int digit_input(1);
 
+	input = trim_space(input);
 	for(i = 0; input[i]; i++)
 		if (!isdigit(input[i]))
 			digit_input = 0;

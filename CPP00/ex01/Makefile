@@ -9,7 +9,7 @@ INC = header.hpp
 
 CC = clang++
 
-CFLAGS = -Wall -Werror -Wextra #-fsanitize=address
+CFLAGS = -std=c++98 -Wall -Werror -Wextra
 
 OBJ = $(SRCS:.cpp=.o)
 
