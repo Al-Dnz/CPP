@@ -1,12 +1,13 @@
-NAME = 
+NAME = bank
 
-SRCS =	
+SRCS =	Account.cpp\
+		tests.cpp\
 
-INC = "" 
+INC = Account.hpp
 
 CC = clang++
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -std=c++98 -Wall -Werror -Wextra
 
 OBJ = $(SRCS:.cpp=.o)
 
