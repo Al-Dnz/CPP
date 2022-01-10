@@ -1,12 +1,14 @@
-NAME = 
+NAME = zombie
 
-SRCS =	
-
-INC = "" 
+SRCS =	main.cpp \
+		Zombie.cpp \
+		ZombieHorde.cpp \
+		
+INC = Zombie.hpp 
 
 CC = clang++
 
-CFLAGS = -std=c++98-Wall -Werror -Wextra
+CFLAGS =  -Wall -Werror -Wextra -std=c++98
 
 OBJ = $(SRCS:.cpp=.o)
 
