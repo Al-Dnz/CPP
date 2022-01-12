@@ -1,6 +1,6 @@
-NAME = 
+NAME = sed
 
-SRCS =	
+SRCS =	main.cpp \
 
 INC = "" 
 
