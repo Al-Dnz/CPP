@@ -34,17 +34,18 @@ std::string set_filename(char *argv)
 	return path;
 }
 
-void ft_replace(std::string &s, const std::string search, const std::string new_str )
+void ft_replace(std::string &s, const std::string search, const std::string new_str)
 {
+	size_t pos;
 	if (search.length() > s.length())
 		return;
-    for(size_t pos = 0; ;pos += new_str.length()) 
+	for(pos = 0; ;pos += new_str.length()) 
 	{
-        pos = s.find(search, pos);
-        if(pos == std::string::npos)
+	    pos = s.find(search, pos);
+	    if(pos == std::string::npos)
 			break;
-        s.erase(pos, search.length());
-        s.insert(pos, new_str);
+	    s.erase(pos, search.length());
+	    s.insert(pos, new_str);
     }
 }
 
