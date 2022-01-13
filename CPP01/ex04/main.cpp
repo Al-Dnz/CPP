@@ -22,7 +22,11 @@ std::string set_filename(char *argv)
   	for (std::string each; std::getline(stream, each, '/'); tokens.push_back(each));
 	std::string &filename = tokens.back();
 	for (int i = 0; filename[i]; i++)
+	{
+		if (filename[i] == '.')
+			break;
 		filename[i] = toupper(filename[i]);
+	}
 	filename += ".replace";
 	path.clear();
 	for(size_t i = 0; i != tokens.size(); i++)

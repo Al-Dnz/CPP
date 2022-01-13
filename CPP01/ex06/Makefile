@@ -1,6 +1,7 @@
-NAME = sed
+NAME = karenFilter
 
-SRCS =	main.cpp \
+SRCS =	main.cpp	\
+		Karen.cpp \
 
 INC = "" 
 
@@ -22,7 +23,6 @@ $(NAME): $(OBJ)
 
 clean:
 	@rm -rf $(OBJ)
-	@rm -rf *.replace
 	@echo "\033[0;31m=> $(NAME) obj deleted <=\033[0m"
 
 fclean:	clean
