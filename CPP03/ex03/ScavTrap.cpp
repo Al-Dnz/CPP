@@ -1,0 +1,53 @@
+#include "ScavTrap.hpp"  
+	
+ScavTrap::ScavTrap(void): ClapTrap()
+{
+	_name = "undefined";
+	_hitpoints = 100;
+	_energy_points = 50;
+	_attack_damage = 20;
+	stored_hitpoints = getHitpoints();
+	stored_energy_points = getEneryPoints() ;
+	stored_attack_damage = getAttackDamage() ;
+} 
+
+ScavTrap::ScavTrap(std::string const name): ClapTrap(name)
+{
+	std::cout << "ℹ️ a scavtrap appears !" << std::endl;
+	_name = name;
+	_hitpoints = 100;
+	_energy_points = 50;
+	_attack_damage = 20;
+	stored_hitpoints = getHitpoints();
+	stored_energy_points = getEneryPoints() ;
+	stored_attack_damage = getAttackDamage() ;
+}
+	
+ScavTrap::~ScavTrap()
+{
+	std::cout << "ℹ️ scavtrap "<< _name << " disappears." << std::endl;
+}
+
+ScavTrap::ScavTrap(ScavTrap const& scavtrap)
+{
+	*this = scavtrap;
+	std::cout << "ℹ️ Scavtrap " << _name << " created by copy" << std::endl;
+}
+
+ScavTrap& 	ScavTrap::operator=(const ScavTrap &scavtrap)
+{
+	std::cout << "ℹ️ Scavtrap data transfer from " << scavtrap._name << " to a new scavtrap" << std::endl;
+	if (this != &scavtrap) 
+	{
+		_name = scavtrap._name;
+		_hitpoints = scavtrap._hitpoints;
+		_energy_points = scavtrap._energy_points;
+		_attack_damage = scavtrap._attack_damage;
+	}
+	return *this;
+}
+
+void	ScavTrap::guardGate(void)
+{
+	std::cout << "🛡️  Scavtrap " << _name << " enters in gate_keeper mode" << std::endl;
+}
