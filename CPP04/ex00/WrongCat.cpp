@@ -1,0 +1,55 @@
+#include "WrongCat.hpp"
+
+/*
+** ------------------------------- CONSTRUCTOR --------------------------------
+*/
+
+WrongCat::WrongCat()
+{
+	type = "Wrong Cat";
+	std::cout << "😈 A " << type << " is created." << std::endl;
+}
+
+WrongCat::WrongCat( const WrongCat & src )
+{
+	std::cout << "😈 A " << type << " is created." << std::endl;
+	*this = src;
+}
+
+
+/*
+** -------------------------------- DESTRUCTOR --------------------------------
+*/
+
+WrongCat::~WrongCat()
+{
+	std::cout << "✝️ A " << type << " is destructed." << std::endl;
+}
+
+
+/*
+** --------------------------------- OVERLOAD ---------------------------------
+*/
+
+WrongCat &				WrongCat::operator=( WrongCat const & rhs )
+{
+	WrongAnimal::operator=(rhs);
+    type = "Wrong Cat";
+	return *this;
+}
+
+/*
+** --------------------------------- METHODS ----------------------------------
+*/
+
+void WrongCat::makeSound(void) const
+{
+    std::cout << "🔉 Miaoulololololololllolol!" << std::endl;
+}
+
+/*
+** --------------------------------- ACCESSOR ---------------------------------
+*/
+
+
+/* ************************************************************************** */
