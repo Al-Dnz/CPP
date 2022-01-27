@@ -4,6 +4,10 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
+Form::Form(): _name("undefined_form"), _signed(false), _signature_grade(150), _execution_grade(150)
+{
+}
+
 Form::Form(std::string name, bool is_signed, int s_grade, int e_grade): _name(name)
 {
 	_signed = is_signed;
