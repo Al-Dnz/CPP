@@ -69,7 +69,6 @@ void identify( Base & p)
 	{
 		//std::cerr << e.what() << '\n';
 	}
-
 }
 
 int main(void)
