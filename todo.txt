@@ -1,0 +1,3 @@
+replace *_H -> *_HPP
+change file name whatever.hpp
+check canonic form everywhere
