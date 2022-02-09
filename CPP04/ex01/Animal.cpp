@@ -7,12 +7,12 @@
 Animal::Animal()
 {
 	type = "Animal";
-	std::cout << "🐾 A " << type << " is created." << std::endl;
+	std::cout << "🐾 A " << "Animal" << " is created." << std::endl;
 }
 
 Animal::Animal( const Animal & src )
 {
-	std::cout << "🐾 A " << type << " is created." << std::endl;
+	std::cout << "🐾 A " << "Animal" << " is created." << std::endl;
 	*this = src;
 }
 

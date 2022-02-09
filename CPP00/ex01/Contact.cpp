@@ -6,7 +6,7 @@ int		Contact::set_first_name(std::string input)
 
 	if (input.length() == 0)
 	{
-		std::cout << "error in first_name format" << std::endl;
+		std::cout << "\033[1;31merror in first_name format\033[0m" << std::endl;
 		return (0);
 	}
 	first_name = input;
@@ -18,7 +18,7 @@ int		Contact::set_last_name(std::string input)
 	input = trim_space(input);
 	if (input.length() == 0)
 	{
-		std::cout << "error in lasst_name format" << std::endl;
+		std::cout << "\033[1;31merror in last_name format\033[0m" << std::endl;
 		return (0);
 	}
 	last_name = input;
@@ -47,7 +47,7 @@ int		Contact::set_phone_number(std::string input)
 			digit_input = 0;
 	if (input.length() != 10 || digit_input == 0)
 	{
-		std::cout << "\033[1;31merror in phone_number format\033[0m" << std::endl;
+		std::cout << "\033[1;31merror in phone_number format (10 digits required)\033[0m" << std::endl;
 		return (0);
 	}
 	phone_number = input;

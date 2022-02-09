@@ -7,12 +7,12 @@
 Cat::Cat()
 {
 	type = "Cat";
-	std::cout << "😺 A " << type << " is created." << std::endl;
+	std::cout << "😺 A cat is created." << std::endl;
 }
 
 Cat::Cat( const Cat & src )
 {
-	std::cout << "😺 A " << type << " is created." << std::endl;
+	std::cout << "😺 A cat is created." << std::endl;
 	*this = src;
 }
 
@@ -23,7 +23,7 @@ Cat::Cat( const Cat & src )
 
 Cat::~Cat()
 {
-	std::cout << "✝️ A " << type << " is destructed." << std::endl;
+	std::cout << "✝️ A cat is destructed." << std::endl;
 }
 
 

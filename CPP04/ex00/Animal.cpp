@@ -7,12 +7,12 @@
 Animal::Animal()
 {
 	type = "Animal";
-	std::cout << "🐾 A " << type << " is created." << std::endl;
+	std::cout << "🐾 An animal" << " is created." << std::endl;
 }
 
 Animal::Animal( const Animal & src )
 {
-	std::cout << "🐾 A " << type << " is created." << std::endl;
+	std::cout << "🐾 An animal" << " is created." << std::endl;
 	*this = src;
 }
 
@@ -23,7 +23,7 @@ Animal::Animal( const Animal & src )
 
 Animal::~Animal()
 {
-	std::cout << "✝️ A " << type << " is destructed." << std::endl;
+	std::cout << "✝️ An animal" << " is destructed." << std::endl;
 }
 
 

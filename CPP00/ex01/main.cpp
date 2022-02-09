@@ -22,7 +22,7 @@ Contact	create_contact()
 	Contact contact;
 	std::string str;
 	bool valid_step;
-	std::string data_kind[5] = {"first_name", "last_name", "nickname", "phone_number", "dark_scret"};
+	std::string data_kind[5] = {"first_name", "last_name", "nickname", "phone_number", "dark_secret"};
 	std::string default_str[5] = {"xxxxxxxxxx", "xxxxxxxxxx", "xxxxxxxxxx", "0000000000", "xxxxxxxxxx"};
 	setter method[5] = 
 	{
