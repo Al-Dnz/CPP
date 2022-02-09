@@ -38,7 +38,7 @@ MateriaSource & MateriaSource::operator=(MateriaSource const & rhs)
 			delete _storage[i];
 			if (rhs._storage[i])
 				_storage[i] =  rhs._storage[i]->clone();
-			 else
+			else
 			 	_storage[i] = 0;
 		}
 	}

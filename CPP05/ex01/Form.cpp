@@ -87,7 +87,6 @@ void			Form::beSigned(Bureaucrat bureaucrat)
 		std::cout << bureaucrat.getName() << " cannot sign because: ";
 		throw Form::GradeTooLowException();
 	}
-		
 	else
 	{
 		_signed = true;

@@ -14,8 +14,7 @@ CFLAGS = -std=c++98 -Wall -Werror -Wextra #-Wshadow -Wno-shadow
 
 OBJ = $(SRCS:.cpp=.o)
 
-.c.o:
-	${CC} ${CFLAGS} -c$< -o ${<:.c=.o}
+
 
 all:
 	@$(MAKE) -s $(NAME)

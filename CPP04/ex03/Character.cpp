@@ -81,7 +81,8 @@ void			Character::use(int idx, ICharacter& target)
 {
 	if (idx < 0 || idx >= _inventory_size)
 		return;
-	_inventory[idx]->use(target);
+	if (_inventory[idx])
+		_inventory[idx]->use(target);
 
 }
 

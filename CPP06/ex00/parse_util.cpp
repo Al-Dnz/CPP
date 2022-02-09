@@ -3,6 +3,8 @@
 int is_full_digit(std::string str, char exception1, char exception2)
 {
 	int i = 0;
+	if (str[0]== '.')
+		return 0;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	while (str[i])

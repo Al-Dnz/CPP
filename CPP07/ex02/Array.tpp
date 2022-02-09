@@ -32,7 +32,8 @@ Array<T>::Array( const Array & src )
 template <typename T>
 Array<T>::~Array()
 {
-	delete[] _arr;
+	if (_arr)
+		delete[] _arr;
 }
 
 
@@ -45,7 +46,8 @@ Array<T> &				Array<T>::operator=( Array<T> const & rhs )
 {
 	if ( this != &rhs )
 	{
-		delete[] _arr;
+		if (_arr)
+			delete[] _arr;
 		_arr = new T[rhs._size];
 		_size = rhs._size;
 		for(unsigned int i = 0; i < rhs._size; i++)
