@@ -8,7 +8,7 @@ Span::Span(unsigned int N): _size(N), _data(0)
 {
 }
 
-Span::Span(unsigned int N): _size(N)
+Span::Span(): _size(0), _data(0)
 {
 }
 
@@ -98,6 +98,13 @@ unsigned int Span::longestSpan(void) const
 	{
 		sort(v.begin(), v.end());
 		return (v.back() - v.front());
+	}
+}
+
+void Span::addRange(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end)
+{
+	while (begin != end) {
+		Span::addNumber(*begin++);
 	}
 }
 

@@ -15,6 +15,7 @@ class Span
 
 	public:
 
+		Span();
 		Span(unsigned int N = 0);
 		Span(Span const & src);
 		~Span();
@@ -24,6 +25,7 @@ class Span
 		int				getMaxSize(void) const;
 		int				getVecSize(void) const;
 		void			addNumber(int n);
+		void			addRange(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end);
 		unsigned int	shortestSpan(void) const;
 		unsigned int	longestSpan(void) const;
 
