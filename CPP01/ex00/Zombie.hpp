@@ -11,7 +11,7 @@ class Zombie
 		void	announce(void);
 
 	private:
-		std::string name = "undefined";
+		std::string name;
 
 };
 

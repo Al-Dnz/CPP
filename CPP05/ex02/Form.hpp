@@ -8,7 +8,7 @@
 
 class Form
 {
-	protected:
+	private:
 		const std::string	_name;
 		bool				_signed;
 		int					_signature_grade;

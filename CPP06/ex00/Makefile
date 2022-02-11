@@ -14,7 +14,7 @@ CXXFLAGS = -std=c++98 -g -fstandalone-debug #-Wall -Werror -Wextra
 OBJ = $(SRCS:.cpp=.o)
 
 # .c.o:
-# 	${CC} ${CFLAGS} -c$< -o ${<:.c=.o}
+# 	${CCXX} ${CXXFLAGS} -c$< -o ${<:.c=.o}
 
 all:
 	@$(MAKE)  $(NAME)

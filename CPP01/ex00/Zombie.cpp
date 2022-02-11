@@ -5,7 +5,7 @@ void  Zombie::announce(void)
 	std::cout << name << " BraiiiiiiinnnzzzZ.." << std::endl;
 }
 
-Zombie::Zombie(std::string name_arg)
+Zombie::Zombie(std::string name_arg = "undefined")
 {
 	name = name_arg;
 }

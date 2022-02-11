@@ -6,17 +6,17 @@ SRCS =	main.cpp \
 		
 INC = Zombie.hpp 
 
-CC = clang++
+CXX = c++
 
-CFLAGS =  -Wall -Werror -Wextra -std=c++98
+CXXFLAGS =  -Wall -Werror -Wextra -std=c++98
 
 OBJ = $(SRCS:.cpp=.o)
 
 all:
-	@$(MAKE) -s $(NAME)
+	@$(MAKE)  $(NAME)
 
 $(NAME): $(OBJ)
-	${CC} $(CFLAGS) -I $(INC) $(OBJ) -o $(NAME) 
+	${CCXX} $(CXXFLAGS) -I $(INC) $(OBJ) -o $(NAME) 
 	@echo "\033[0;32m=> $(NAME) well created ! <=\033[0m"
 
 clean:

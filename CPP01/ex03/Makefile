@@ -2,21 +2,19 @@ NAME = prog
 
 SRCS	:= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
-INC	:= Weapon.hpp HumanA.hpp HumanB.hpp
+CXX = c++
 
-CC = clang++
-
-CFLAGS = -std=c++98 -Wall -Werror -Wextra
+CXXFLAGS = -std=c++98 -Wall -Werror -Wextra
 
 OBJ = $(SRCS:.cpp=.o)
 
 
 
 all:
-	@$(MAKE) -s $(NAME)
+	@$(MAKE)  $(NAME)
 
 $(NAME): $(OBJ)
-	${CC} $(CFLAGS) $(OBJ) -o$(NAME)
+	${CCXX} $(CXXFLAGS) $(OBJ) -o$(NAME)
 	@echo "\033[0;32m=> $(NAME) well created ! <=\033[0m"
 
 clean:

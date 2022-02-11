@@ -20,7 +20,8 @@ int main(int argc, char **argv)
 		std::cout << "error: arg is not a positive number" << std::endl;
 		return (1);
 	}
-	int N = atoi(argv[1]);
+	std::string iput = argv[1];
+	int N = std::stoi(input);
 	Zombie *horde = zombieHorde(N, argv[2]);
 	for (i = 0; i < N; i++)
 		horde[i].announce();
