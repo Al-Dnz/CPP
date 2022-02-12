@@ -65,19 +65,19 @@ void	Contact::set_index(int i)
 	index = i;
 }
 
+
 void	Contact::print_contact_form(void)
 {
-	std::string str;
+	std::string index_str;
 
-	str = std::to_string(index);
-	std::cout << std::setw(10) << str.substr(0, 10) << " | ";
-	std::cout << std::setw(10) << first_name.substr(0, 10) << " | ";
-	std::cout << std::setw(10) << last_name.substr(0, 10) << " | ";
-	std::cout << std::setw(10) << nickname.substr(0, 10) << " | ";
-	std::cout << std::setw(10) << phone_number.substr(0, 10) << " | ";
-	std::cout << std::setw(10) << dark_secret.substr(0, 10) << std::endl;
+	index_str = std::to_string(index);
+	std::cout << std::setw(10) << data_display_format(index_str) << " | ";
+	std::cout << std::setw(10) << data_display_format(first_name) << " | ";
+	std::cout << std::setw(10) << data_display_format(last_name) << " | ";
+	std::cout << std::setw(10) << data_display_format(nickname) << " | ";
+	std::cout << std::setw(10) << data_display_format(phone_number) << " | ";
+	std::cout << std::setw(10) << data_display_format(dark_secret) << std::endl;
 }
-
 
 void	Contact::print_contact_card(void)
 {
@@ -91,7 +91,7 @@ void	Contact::print_contact_card(void)
 		phone_number,
 		dark_secret
 	};
-	int max_len = 0;
+	unsigned int max_len = 0;
 	int i = 0;
 	while (i < 6)
 	{

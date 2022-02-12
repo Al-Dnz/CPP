@@ -8,6 +8,6 @@ class Phonebook
 		Phonebook():	contact_number(0) {};
 		void			print(void);
 	
-	private:
+	
 		
 };

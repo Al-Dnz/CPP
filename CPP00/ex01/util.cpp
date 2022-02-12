@@ -38,3 +38,12 @@ std::string str_toupper(std::string str)
 		str_bis += std::toupper((unsigned char)str[i++]);
 	return (str_bis);
 }
+
+std::string	data_display_format(std::string str)
+{
+	if (str.length() > 10)
+		str = str.substr(0, 9) + '.';
+	else
+		str = str.substr(0, 10);
+	return str;
+}
