@@ -13,6 +13,11 @@ void		Phonebook::print(void)
 		contact_tab[i].print_contact_form();
 }
 
-int		Phonebook::get_contact_number(void) { return contact_number; }
+int				Phonebook::get_contact_number(void) { return contact_number; }
 
-void	Phonebook::increment_contact_number(void) { contact_number++; }
+void			Phonebook::increment_contact_number(void) { contact_number++; }
+
+Contact&		Phonebook::get_contact(unsigned int index)
+{
+	return contact_tab[index];
+}

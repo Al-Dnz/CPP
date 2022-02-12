@@ -92,5 +92,5 @@ void	select_contact(Phonebook phonebook)
 			}		
 		}
 	} 
-	phonebook.contact_tab[index - 1].print_contact_card();
+	phonebook.get_contact(index - 1).print_contact_card();
 }

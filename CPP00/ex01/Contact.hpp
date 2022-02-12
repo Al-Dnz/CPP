@@ -14,6 +14,7 @@ class Contact
 		int			index;
 
 	public:
+		Contact() {};
 		void	set_index(int index);
 		int		set_first_name(std::string str);
 		int		set_last_name(std::string str);

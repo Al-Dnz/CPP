@@ -20,8 +20,8 @@ int main(void)
 		{
 			if (index < 8)
 			{
-				phonebook.contact_tab[index] = create_contact();
-				phonebook.contact_tab[index].set_index(index + 1);
+				phonebook.get_contact(index) = create_contact();
+				phonebook.get_contact(index).set_index(index + 1);
 				phonebook.increment_contact_number();
 				index++;
 			}
@@ -29,11 +29,11 @@ int main(void)
 			{
 				for (int i = 1; i < 8; i++)
 				{
-					phonebook.contact_tab[i - 1] = phonebook.contact_tab[i];
-					phonebook.contact_tab[i - 1].set_index(i);
+					phonebook.get_contact(i - 1) = phonebook.get_contact(i);
+					phonebook.get_contact(i - 1).set_index(i);
 				}
-				phonebook.contact_tab[7] = create_contact();
-				phonebook.contact_tab[7].set_index(8);
+				phonebook.get_contact(7) = create_contact();
+				phonebook.get_contact(7).set_index(8);
 				index++;
 			}
 		}	
