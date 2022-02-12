@@ -84,7 +84,7 @@ void	select_contact(Phonebook phonebook)
 			index = std::stoi(input);
 			if (index == 0)
 				return ;
-			if (index < 1 || index > phonebook.contact_number)
+			if (index < 1 || index > phonebook.get_contact_number())
 			{
 				std::cout << "\033[1;31mcontact does not exist at this index\033[0m";
 				std::cout << "\033[1;31m [tape 0 to quit]\033[0m" << std::endl;

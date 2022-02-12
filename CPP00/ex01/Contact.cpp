@@ -30,7 +30,8 @@ int		Contact::set_nickname(std::string input)
 	input = trim_space(input);
 	if (input.length() == 0)
 	{
-		input = first_name + "_" + last_name + "_" + std::to_string(index);
+		std::cout << "\033[1;31merror in nickname format\033[0m" << std::endl;
+		return (0);
 	}
 	nickname = input;
 	return (1);
@@ -56,6 +57,12 @@ int		Contact::set_phone_number(std::string input)
 
 int		Contact::set_dark_secret(std::string input)
 {
+	input = trim_space(input);
+	if (input.length() == 0)
+	{
+		std::cout << "\033[1;31merror in dark secret format\033[0m" << std::endl;
+		return (0);
+	}
 	dark_secret = input;
 	return (1);
 }
@@ -75,8 +82,7 @@ void	Contact::print_contact_form(void)
 	std::cout << std::setw(10) << data_display_format(first_name) << " | ";
 	std::cout << std::setw(10) << data_display_format(last_name) << " | ";
 	std::cout << std::setw(10) << data_display_format(nickname) << " | ";
-	std::cout << std::setw(10) << data_display_format(phone_number) << " | ";
-	std::cout << std::setw(10) << data_display_format(dark_secret) << std::endl;
+	std::cout << std::setw(10) << data_display_format(phone_number) << " | " << std::endl;
 }
 
 void	Contact::print_contact_card(void)
