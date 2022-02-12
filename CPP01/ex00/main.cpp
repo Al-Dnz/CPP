@@ -6,7 +6,7 @@ int main(void)
 	z1.announce();
 
 	Zombie *z2;
-	z2 =  newZombie("jacky");
+	z2 = newZombie("jacky");
 	z2->announce();
 	delete z2;
 
