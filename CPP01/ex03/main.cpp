@@ -17,8 +17,26 @@ int main(void)
 	//Test player 2
 	HumanB player_2("Paul");
 	player_2.attack();
-	player_2.take_weapon(weapon_2);
+	player_2.setWeapon(weapon_2);
 	player_2.attack();
-	
+
+	//Subject tests
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
+		
 	return 0;
 }

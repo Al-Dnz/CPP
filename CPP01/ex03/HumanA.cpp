@@ -1,10 +1,9 @@
 #include "HumanA.hpp"
 # include <iostream>
 	
-HumanA::HumanA(std::string name_arg, Weapon weapon_arg)
+HumanA::HumanA(std::string name_arg, Weapon &weapon_arg): name(name_arg), weapon(weapon_arg)
 {
-	name = name_arg;
-	weapon = weapon_arg;
+		
 }
 	
 void HumanA::attack(void)

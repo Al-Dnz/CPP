@@ -3,14 +3,14 @@
 class HumanB  
 {
 	private:
-		Weapon		weapon;
 		std::string	name;
+		Weapon		*weapon;
 		bool		is_armed;
 
 	public:
 
 		HumanB(std::string name);
 		void attack(void);
-		void take_weapon(Weapon weapon);
+		void setWeapon(Weapon &weapon);
 
 };

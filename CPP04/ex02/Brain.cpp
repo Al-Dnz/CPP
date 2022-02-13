@@ -51,7 +51,7 @@ Brain &				Brain::operator=( Brain const & rhs )
 
 void	Brain::displayIdeas(void) const
 {
-	int i = 0;
+	unsigned int i = 0;
 	unsigned int size = getNbIdeas();
 	std::string tmp;
 

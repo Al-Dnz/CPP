@@ -14,30 +14,6 @@ bool	path_error(char *argv)
 	return false;
 }
 
-std::string set_filename(char *argv)
-{
-	std::string path(argv);
-	std::istringstream stream(path); 
-	std::vector<std::string> tokens;
-  	for (std::string each; std::getline(stream, each, '/'); tokens.push_back(each));
-	std::string &filename = tokens.back();
-	for (int i = 0; filename[i]; i++)
-	{
-		if (filename[i] == '.')
-			break;
-		filename[i] = toupper(filename[i]);
-	}
-	filename += ".replace";
-	path.clear();
-	for(size_t i = 0; i != tokens.size(); i++)
-	{
-		path += tokens[i];
-		if (i != tokens.size() - 1)
-			path += "/";
-	}
-	return path;
-}
-
 void ft_replace(std::string &s, const std::string search, const std::string new_str)
 {
 	size_t pos;
@@ -58,7 +34,7 @@ int main(int argc, char **argv)
 	if (argc != 4)
 	{
 		std::cout << "error\nwrong arg number\n";
-		std::cout << "usage:\n ./prog filename word_to_replace replacing_word" << std::endl;
+		std::cout << "usage:\n ./sed filename word_to_replace replacing_word" << std::endl;
 		return 1;
 	}
 	if (path_error(argv[1]))
@@ -72,7 +48,8 @@ int main(int argc, char **argv)
 		std::cout <<"error\n" << argv[1] << ": non-existent or unreadable file" << std::endl;
 		return 1;
 	}
-	std::string new_filename = set_filename(argv[1]);
+	std::string filename = argv[1];
+	std::string new_filename = filename + ".replace";
 	std::ofstream file_w(new_filename.c_str(), std::ios::out | std::ios::trunc);
 	std::string tmp;
 	while (getline(file_r, tmp))

@@ -17,6 +17,27 @@ class MutantStack: public std::stack<T>
 		template <typename T>
 		MutantStack &		operator=( MutantStack const & rhs ){ std::stack<T>::operator=(rhs); };
 
+
+		std::stack<T>::container_type::iterator begin(void)
+		{
+			return this->c.begin();
+		}
+
+		std::stack<T>::container_type::iterator end(void)
+		{
+			return this->c.end();
+		}
+
+		std::stack<T>::container_type::const_iterator start(void) const
+		{
+			return this->c.begin();
+		}
+
+		std::stack<T>::container_type::const_iterator end(void) const
+		{
+			return this->c.end();
+		}
+
 	private:
 
 };
