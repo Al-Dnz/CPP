@@ -20,6 +20,14 @@ int main(void)
 	player_2.setWeapon(weapon_2);
 	player_2.attack();
 
+	//Test player 3
+	HumanB player_3("Jack");
+	Weapon weapon_3;
+	player_3.setWeapon(weapon_3);
+	player_3.attack();
+	weapon_3.setType("knife");
+	player_3.attack();
+
 	//Subject tests
 	{
 		Weapon club = Weapon("crude spiked club");

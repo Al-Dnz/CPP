@@ -48,6 +48,12 @@ int main(int argc, char **argv)
 		std::cout <<"error\n" << argv[1] << ": non-existent or unreadable file" << std::endl;
 		return 1;
 	}
+	std::string to_replace = argv[2];
+	if (to_replace.length() == 0)
+	{
+		std::cout <<"error\n"  << "word to replace is not printable" << std::endl;
+		return 1;
+	}
 	std::string filename = argv[1];
 	std::string new_filename = filename + ".replace";
 	std::ofstream file_w(new_filename.c_str(), std::ios::out | std::ios::trunc);

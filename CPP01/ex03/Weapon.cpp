@@ -1,5 +1,10 @@
 #include "Weapon.hpp"
 
+Weapon::Weapon(void)
+{
+	type = "undefined_weapon";
+}
+
 Weapon::Weapon(std::string const type_arg)
 {
 	type = type_arg;

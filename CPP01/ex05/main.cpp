@@ -5,9 +5,10 @@ int	main(void)
 	Karen karen;
 
 	karen.complain("this won't work");
-	karen.complain("ERROR");
+	karen.complain("DEBUG");
 	karen.complain("INFO");
 	karen.complain("WARNING");
-	karen.complain("DEBUG");
-	return (0);
+	karen.complain("ERROR");
+	
+	return 0;
 }
