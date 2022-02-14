@@ -23,7 +23,7 @@ void	Karen::error(void)
 void	Karen::complain(std::string level)
 {
 	const int size = 4;
-	std::string arr[4] = {"debug", "info", "warning", "error"};
+	std::string arr[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	karen_function method[4] = {
 		&Karen::debug,
 		&Karen::info,
@@ -31,7 +31,7 @@ void	Karen::complain(std::string level)
 		&Karen::error
 	};
 	int index = std::find(arr, arr + size, level) - arr;
-	if (index > size - 1)
+	if (index >= size)
 		return ;
 	(this->*method[index])();
 }

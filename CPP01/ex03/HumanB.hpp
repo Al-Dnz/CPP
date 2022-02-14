@@ -5,7 +5,6 @@ class HumanB
 	private:
 		std::string	name;
 		Weapon		*weapon;
-		bool		is_armed;
 
 	public:
 
