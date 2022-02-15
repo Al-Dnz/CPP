@@ -20,20 +20,19 @@ Fixed::Fixed(Fixed const &fixed)
 Fixed & Fixed::operator=(Fixed const &rhs)
 {
 	std::cout << "Assignation operator called" << std::endl;
-	if (this == &rhs) 
-		return *this;
-	this->n = rhs.getRawBits();
-	return *this;
+	n = rhs.n;
+	return (*this);
 }
 
 int Fixed::getRawBits(void) const
 {
-	//std::cout << "getRawBits member function called" << std::endl;
+	std::cout << "getRawBits member function called" << std::endl;
 	return (this->n);
 }
 
 void Fixed::setRawBits(int const raw)
 {
+	std::cout << "setRawBits member function called" << std::endl;
 	this->n = raw;
 }
 
@@ -51,7 +50,7 @@ Fixed::Fixed(float f)
 
 int	Fixed::toInt(void) const
 {
-	return ((int)roundf(toFloat()));
+	return n >> store;
 }
 
 float Fixed::toFloat(void) const

@@ -81,7 +81,7 @@ void	select_contact(Phonebook phonebook)
 		}
 		if (error == false)
 		{
-			index = std::stoi(input);
+			index = std::atoi(input.c_str());
 			if (index == 0)
 				return ;
 			if (index < 1 || index > phonebook.get_contact_number())
