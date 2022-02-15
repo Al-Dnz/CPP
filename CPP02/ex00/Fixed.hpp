@@ -1,6 +1,5 @@
-#ifndef FIXED_H
-#define FIXED_H
-#pragma once
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <iostream>
 	
@@ -15,8 +14,8 @@ class Fixed
 		Fixed(Fixed const &fixed);
 		~Fixed(void);
 		Fixed& operator=(Fixed const &fixed);
-		int getRawBits(void) const;
-		void setRawBits(int const raw);
+		int 	getRawBits(void) const;
+		void 	setRawBits(int const raw);
 };
 
 #endif

@@ -1,6 +1,5 @@
-#ifndef FIXED_H
-#define FIXED_H
-#pragma once
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <iostream>
 #include <cmath>
