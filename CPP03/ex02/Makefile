@@ -19,7 +19,7 @@ all:
 	@$(MAKE)  $(NAME)
 
 $(NAME): $(OBJ)
-	${CCXX} $(CXXFLAGS) -I $(INC) $(OBJ) -o $(NAME) 
+	${CXX} $(CXXFLAGS) -I $(INC) $(OBJ) -o $(NAME) 
 	@echo "\033[0;32m=> $(NAME) well created ! <=\033[0m"
 
 clean:
