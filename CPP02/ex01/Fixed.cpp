@@ -20,7 +20,10 @@ Fixed::Fixed(Fixed const &fixed)
 Fixed & Fixed::operator=(Fixed const &rhs)
 {
 	std::cout << "Assignation operator called" << std::endl;
-	n = rhs.n;
+	if ( this != &rhs )
+	{
+		n = rhs.n;
+	}
 	return (*this);
 }
 

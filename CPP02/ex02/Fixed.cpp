@@ -26,9 +26,11 @@ Fixed::Fixed(Fixed const &fixed)
 
 Fixed & Fixed::operator=(Fixed const &rhs)
 {
-	if (this == &rhs) 
-		return *this;
-	*this = rhs;
+	if ( this != &rhs )
+	{
+		n = rhs.n;
+	}
+	return (*this);
 }
 
 int Fixed::getRawBits(void) const
@@ -41,15 +43,7 @@ void Fixed::setRawBits(int const raw)
 	this->n = raw;
 }
 
-Fixed::Fixed(int i)
-{
-	this->n = i << store;
-}
 
-Fixed::Fixed(float f)
-{
-	this->n = roundf(f * (1 << store));
-}
 
 int	Fixed::toInt(void) const
 {
@@ -131,7 +125,7 @@ Fixed &Fixed::operator++()
 
 Fixed Fixed::operator++(int)
 {
-	Fixed tmp(*this);
+	Fixed tmp = *this;
 	operator++();
 	return tmp;
 }
@@ -144,37 +138,36 @@ Fixed &Fixed::operator--()
 
 Fixed Fixed::operator--(int)
 {
-	Fixed tmp(*this);
+	Fixed tmp = *this;
 	operator--();
-
 	return tmp;
 }
 
 
 Fixed &Fixed::min(Fixed &a, Fixed &b)
 {
-	if (a < b)
+	if (a.toFloat() < b.toFloat())
 		return a;
 	return b;
 }
 
 Fixed const &Fixed::min(Fixed const &a, Fixed const &b)
 {
-	if (a < b)
+	if (a.toFloat() < b.toFloat())
 		return a;
 	return b;
 }
 
 Fixed &Fixed::max(Fixed &a, Fixed &b)
 {
-	if (a > b)
+	if (a.toFloat() > b.toFloat())
 		return a;
 	return b;
 }
 
 Fixed const &Fixed::max(Fixed const &a, Fixed const &b)
 {
-	if (a > b)
+	if (a.toFloat() > b.toFloat())
 		return a;
 	return b;
 }

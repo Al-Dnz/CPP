@@ -6,7 +6,6 @@ Point::Point(float x, float y): x(Fixed(x)), y(Fixed(y)) {}
 	
 Point::~Point()
 {
-	
 }
 
 Point::Point(Point const &point): x(point.getX()), y(point.getY())
@@ -17,6 +16,7 @@ Point::Point(Point const &point): x(point.getX()), y(point.getY())
 
 Point &Point::operator=(Point const &rhs)
 {
+	(void)rhs;
 	return *this;
 }
 
