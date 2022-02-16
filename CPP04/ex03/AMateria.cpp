@@ -24,16 +24,6 @@ AMateria::~AMateria(void) {}
 std::string const &AMateria::getType() const { return _type;}
 
 
-void AMateria::use(ICharacter& target)
-{
-	if (getType() == "weapon")
-		std::cout << "* shoots an ice bolt at " << target.getName() << "*" << std::endl;
-	else if (getType() == "medikit")
-		std::cout << "*" << std::endl;
-
-}
-
-
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */

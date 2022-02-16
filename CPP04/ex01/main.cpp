@@ -30,9 +30,11 @@ int main()
 	}
 	for(int i = ARR_SIZE / 2; i < ARR_SIZE; i++)
 	{
-		arr[i] = new Cat;
+		std::cout << "(" << i << ") ";
+		arr[i] = new Dog;
 		std::cout << "----------------------------" << std::endl;
 	}
+	std::cout << std::endl;
 	for(int i = 0; i < ARR_SIZE; i++)
 	{
 		delete arr[i];

@@ -51,7 +51,7 @@ Brain &				Brain::operator=( Brain const & rhs )
 
 void	Brain::displayIdeas(void) const
 {
-	int i = 0;
+	unsigned int i = 0;
 	unsigned int size = getNbIdeas();
 	std::string tmp;
 
@@ -76,7 +76,7 @@ void 			Brain::setIdea(unsigned int index, std::string const str)
 {
 	if (index < 0 || index >= getNbIdeas())
 	{
-		std::cout << "Error: Brain can't manage this idea_index" << std::endl;
+		std::cout << "Error: Brain can't manage this idea_index (" << index << ")" << std::endl;
 		return ;
 	}
 	ideas[index] = str;

@@ -25,5 +25,4 @@ int main()
 	// std::cout << aanimal->getType() << " " << std::endl;
 	// aanimal->makeSound();
 	// delete aanimal;
-	std::cout << "--------------------------------" << std::endl;
 }
