@@ -2,8 +2,12 @@
 
 ClapTrap::ClapTrap(void): _name("undefined_clap_name"), _hitpoints(10), _energy_points(10), _attack_damage(0) {}
 
-ClapTrap::ClapTrap(std::string const name): _name(name), _hitpoints(10), _energy_points(10), _attack_damage(0)
+ClapTrap::ClapTrap(std::string const name)
 {
+	_name = name;
+	_hitpoints = 10;
+	_energy_points = 10; 
+	_attack_damage =  0;
 	std::cout << "ℹ️ a claptrap appears !" << std::endl;
 }
 	
@@ -39,7 +43,10 @@ int			ClapTrap::getAttackDamage(void) const { return this->_attack_damage; }
 
 void		ClapTrap::attack(std::string const &target)
 {
-	std::cout << "💥 ClapTrap " << _name << " attacks " << target << ", causing " << _attack_damage << " points of damage." << std::endl;
+	if (_hitpoints > 0 && _energy_points > 0)
+		std::cout << "💥 ClapTrap " << _name << " attacks " << target << ", causing " << _attack_damage << " points of damage." << std::endl;
+	else
+		std::cout << "💥 ClapTrap " << _name << "does nothing because he has not enouth points" << std::endl;
 }
 
 void		ClapTrap::takeDamage(unsigned int amount)

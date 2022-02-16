@@ -4,14 +4,14 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 	
-class ScavTrap:  public virtual ClapTrap
+class ScavTrap:  virtual public  ClapTrap
 {
 
 	protected:
 		 unsigned int	stored_hitpoints;
 		 unsigned int	stored_energy_points;
-		 unsigned int	stored_attack_damage;		
-
+		 unsigned int	stored_attack_damage;
+		 
 	public:
 		ScavTrap();
 		~ScavTrap();
@@ -19,6 +19,7 @@ class ScavTrap:  public virtual ClapTrap
 		ScavTrap(ScavTrap const &scavtrap);
 		ScavTrap &operator=(const ScavTrap &scavtrap);
 
+		void 	attack(std::string const &target);
 		void	guardGate(void);
 
 };

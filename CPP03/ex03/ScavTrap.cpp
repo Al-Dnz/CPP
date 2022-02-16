@@ -7,8 +7,8 @@ ScavTrap::ScavTrap(void): ClapTrap()
 	_energy_points = 50;
 	_attack_damage = 20;
 	stored_hitpoints = getHitpoints();
-	stored_energy_points = getEneryPoints() ;
-	stored_attack_damage = getAttackDamage() ;
+	stored_energy_points = getEneryPoints();
+	stored_attack_damage = getAttackDamage();
 } 
 
 ScavTrap::ScavTrap(std::string const name): ClapTrap(name)
@@ -19,8 +19,8 @@ ScavTrap::ScavTrap(std::string const name): ClapTrap(name)
 	_energy_points = 50;
 	_attack_damage = 20;
 	stored_hitpoints = getHitpoints();
-	stored_energy_points = getEneryPoints() ;
-	stored_attack_damage = getAttackDamage() ;
+	stored_energy_points = getEneryPoints();
+	stored_attack_damage = getAttackDamage();
 }
 	
 ScavTrap::~ScavTrap()
@@ -45,6 +45,14 @@ ScavTrap& 	ScavTrap::operator=(const ScavTrap &scavtrap)
 		_attack_damage = scavtrap._attack_damage;
 	}
 	return *this;
+}
+
+void		ScavTrap::attack(std::string const &target)
+{
+	if (_hitpoints > 0 && _energy_points > 0)
+		std::cout << "💥 ScavTrap " << _name << " attacks " << target << ", causing " << _attack_damage << " points of damage." << std::endl;
+	else
+		std::cout << "💥 ScavTrap " << _name << "does nothing because he has not enouth points" << std::endl;
 }
 
 void	ScavTrap::guardGate(void)

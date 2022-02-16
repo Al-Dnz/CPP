@@ -1,19 +1,19 @@
 #include "DiamondTrap.hpp"  
 	
-DiamondTrap::DiamondTrap(void): ClapTrap("undefined_clap_name")
+DiamondTrap::DiamondTrap(void): ClapTrap("undefined_clap_name"), ScavTrap(), FragTrap()
 {
-	DiamondTrap::_name = "undefined";
-	DiamondTrap::_hitpoints = 100;
-	DiamondTrap::_energy_points = 50;
-	DiamondTrap::_attack_damage = 30;
+	_name = "undefined";
+	ClapTrap::_name = "undefined_clap_name";
+	_hitpoints = FragTrap::stored_hitpoints ;//100;
+	_energy_points = ScavTrap::stored_energy_points ;//50;
+	_attack_damage = FragTrap::stored_attack_damage ;//30;
 } 
 
-DiamondTrap::DiamondTrap(std::string const name) 
+DiamondTrap::DiamondTrap(std::string const name_arg):ClapTrap(name_arg + "_clap_name"), ScavTrap(name_arg), FragTrap(name_arg)
 {
 	std::cout << "ℹ️ a DiamondTrap appears !" << std::endl;
-	DiamondTrap::_name = name;
-	
-	ClapTrap::_name = name + "_clap_name";
+	this->_name = name_arg;
+	ClapTrap::_name = name_arg + "_clap_name";
 	_hitpoints = FragTrap::stored_hitpoints ;//100;
 	_energy_points = ScavTrap::stored_energy_points ;//50;
 	_attack_damage = FragTrap::stored_attack_damage ;//30;
@@ -43,7 +43,17 @@ DiamondTrap& 	DiamondTrap::operator=(const DiamondTrap &diamondtrap)
 	return *this;
 }
 
+void	DiamondTrap::attack(std::string const &target)
+{
+	this->ScavTrap::attack(target);
+}
+
 void	DiamondTrap::whoAmI(void)
 {
 	std::cout << "🚹 I am " << _name << " (" << ClapTrap::_name << ")" << std::endl;
 }
+
+std::string	DiamondTrap::getDiamondName(void) const { return this->_name; }
+int			DiamondTrap::getDiamondHitpoints(void) const { return this->_hitpoints; }
+int			DiamondTrap::getDiamondEneryPoints(void) const { return this->_energy_points; }
+int			DiamondTrap::getDiamondAttackDamage(void) const { return this->_attack_damage; }

@@ -7,8 +7,8 @@ FragTrap::FragTrap(void): ClapTrap()
 	_energy_points = 100;
 	_attack_damage = 30;
 	stored_hitpoints = getHitpoints();
-	stored_energy_points = getEneryPoints() ;
-	stored_attack_damage = getAttackDamage() ;
+	stored_energy_points = getEneryPoints();
+	stored_attack_damage = getAttackDamage();
 } 
 
 FragTrap::FragTrap(std::string const name): ClapTrap(name)
@@ -19,8 +19,8 @@ FragTrap::FragTrap(std::string const name): ClapTrap(name)
 	_energy_points = 100;
 	_attack_damage = 30;
 	stored_hitpoints = getHitpoints();
-	stored_energy_points = getEneryPoints() ;
-	stored_attack_damage = getAttackDamage() ;
+	stored_energy_points = getEneryPoints();
+	stored_attack_damage = getAttackDamage();
 }
 	
 FragTrap::~FragTrap()
@@ -49,5 +49,5 @@ FragTrap& 	FragTrap::operator=(const FragTrap &scavtrap)
 
 void	FragTrap::highFivesGuys(void)
 {
-	std::cout << "🖐  " << _name << ": give me five bro !" << std::endl;
+	std::cout << "🖐  Fragtrap " << _name << ": give me five bro !" << std::endl;
 }
