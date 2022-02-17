@@ -11,8 +11,8 @@ class Form
 	private:
 		const std::string	_name;
 		bool				_signed;
-		int					_signature_grade;
-		int					_execution_grade;			
+		unsigned int		_signature_grade;
+		unsigned int		_execution_grade;			
 
 	public:
 
@@ -23,8 +23,8 @@ class Form
 
 		std::string		getName(void) const;
 		bool			getSigned(void) const;
-		int				getSignatureGrade(void) const;
-		int				getExecutionGrade(void) const;
+		unsigned int	getSignatureGrade(void) const;
+		unsigned int	getExecutionGrade(void) const;
 
 		void			beSigned(Bureaucrat bureaucrat);
 

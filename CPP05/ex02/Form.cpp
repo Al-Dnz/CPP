@@ -75,8 +75,8 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 
 std::string		Form::getName(void) const {return _name;}
 bool			Form::getSigned(void) const {return _signed;}
-int				Form::getSignatureGrade(void) const {return _signature_grade;}
-int				Form::getExecutionGrade(void) const {return _execution_grade;}
+unsigned int	Form::getSignatureGrade(void) const {return _signature_grade;}
+unsigned int	Form::getExecutionGrade(void) const {return _execution_grade;}
 
 void			Form::beSigned(Bureaucrat bureaucrat)
 {

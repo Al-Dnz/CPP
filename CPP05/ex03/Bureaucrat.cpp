@@ -38,17 +38,22 @@ Bureaucrat &				Bureaucrat::operator=( Bureaucrat const & rhs )
 	if ( this != &rhs )
 	{
 		this->_grade = rhs.getGrade();
-		//this->_name = rhs.getName();
+		const_cast<std::string&>(this->_name) = rhs.getName();
 	}
 	return *this;
 }
 
+std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i )
+{
+	o << i.getName() << ", bureaucrat grade " << i.getGrade() << std::endl;
+	return o;
+}
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void			Bureaucrat::promote(void)
+void			Bureaucrat::retrograde(void)
 {
 	if (_grade + 1 > 150)
 		throw Bureaucrat::GradeTooLowException();
@@ -57,7 +62,7 @@ void			Bureaucrat::promote(void)
 
 }
 
-void			Bureaucrat::retrograde(void)
+void			Bureaucrat::promote(void)
 {
 	if (_grade - 1 < 1)
 			throw Bureaucrat::GradeTooHighException();

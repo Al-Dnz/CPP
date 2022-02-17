@@ -12,8 +12,7 @@ void instanciation_exception_test(int grade)
 	{
 		std::cerr << e.what() << std::endl;
 		return;
-	}
-	
+	}	
 }
 
 void promote_exception_test(int grade)
@@ -31,7 +30,6 @@ void promote_exception_test(int grade)
 		std::cerr << e.what() << std::endl;
 		return;
 	}
-	
 }
 
 void retrograde_exception_test(int grade)
@@ -49,12 +47,35 @@ void retrograde_exception_test(int grade)
 		std::cerr << e.what() << std::endl;
 		return;
 	}
-	
-	
 }
 
-int	main(int argc, char **argv)
+void overload_redir_test(std::string name, int grade)
 {
+	try
+	{
+		Bureaucrat bureaucrat(name, grade);
+		std::cout << bureaucrat;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "error=> " << name << ": ";
+		std::cerr << e.what() << std::endl;
+	}
+
+}
+
+int	main(void)
+{
+
+	// Test overload redirection
+	overload_redir_test("polo", 50);
+	overload_redir_test("michel", 1);
+	overload_redir_test("jean-marie", 0);
+	overload_redir_test("sylvie", 150);
+	overload_redir_test("rachid", 151);
+
+	std::cout << "\n--------------------------\n" << std::endl;
+
 	// Test instanciation exception
 	unsigned int grade;
 	grade  = 15;
@@ -62,6 +83,10 @@ int	main(int argc, char **argv)
 	grade  = 150;
 	instanciation_exception_test(grade);
 	grade  = 151;
+	instanciation_exception_test(grade);
+	grade  = 1;
+	instanciation_exception_test(grade);
+	grade  = 0;
 	instanciation_exception_test(grade);
 	grade  = -1;
 	instanciation_exception_test(grade);
