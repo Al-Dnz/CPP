@@ -20,7 +20,8 @@ MateriaSource::~MateriaSource()
 {
 	for (int i = 0; i < _storage_size; i++)
 	{
-		delete _storage[i];
+		if (_storage[i])
+			delete _storage[i];
 	}
 }
 
@@ -35,7 +36,8 @@ MateriaSource & MateriaSource::operator=(MateriaSource const & rhs)
 	{
 		for (int i = 0; i != _storage_size; ++i) 
 		{
-			delete _storage[i];
+			if (_storage[i])
+				delete _storage[i];
 			if (rhs._storage[i])
 				_storage[i] =  rhs._storage[i]->clone();
 			else

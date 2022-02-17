@@ -22,6 +22,11 @@ Character::Character( const Character & src ): _inventory()
 
 Character::~Character()
 {
+	for (int i = 0; i != _inventory_size; ++i) 
+	{
+		if (_inventory[i])
+			delete _inventory[i];
+	}
 }
 
 
