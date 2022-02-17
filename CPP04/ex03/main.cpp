@@ -21,6 +21,13 @@ int main()
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
 
+	me->equip(src->createMateria("ice"));
+	me->equip(src->createMateria("cure"));
+	me->equip(src->createMateria("ice")); //won't equip anything
+
+	me->unequip(3);
+	me->equip(src->createMateria("ice")); //now that there is a place i can
+
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
 	me->use(1, *bob);

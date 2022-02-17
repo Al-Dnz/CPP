@@ -7,12 +7,12 @@
 WrongCat::WrongCat(): WrongAnimal()
 {
 	type = "Wrong Cat";
-	std::cout << "😈 A " << type << " is created." << std::endl;
+	std::cout << "😈 A wrong cat" << " is created." << std::endl;
 }
 
 WrongCat::WrongCat( const WrongCat & src )
 {
-	std::cout << "😈 A " << type << " is created." << std::endl;
+	std::cout << "😈 A wrong cat" << " is created." << std::endl;
 	*this = src;
 }
 
@@ -23,7 +23,7 @@ WrongCat::WrongCat( const WrongCat & src )
 
 WrongCat::~WrongCat()
 {
-	std::cout << "✝️ A " << type << " is destructed." << std::endl;
+	std::cout << "✝️ A wrong cat" << " is destructed." << std::endl;
 }
 
 

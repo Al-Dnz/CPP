@@ -36,7 +36,6 @@ Dog::~Dog()
 Dog &				Dog::operator=( Dog const & rhs )
 {
 	Animal::operator=(rhs);
-    type = "Dog";
 	if (this != &rhs)
 		*_brain = *rhs._brain;
 	return *this;

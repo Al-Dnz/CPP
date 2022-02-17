@@ -36,7 +36,6 @@ Cat::~Cat()
 Cat &				Cat::operator=( Cat const &rhs )
 {
 	Animal::operator=(rhs);
-    type = "Cat";
 	if (this != &rhs)
 		*_brain = *rhs._brain;
 	return *this;
