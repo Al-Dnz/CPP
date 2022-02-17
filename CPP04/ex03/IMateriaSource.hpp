@@ -1,6 +1,6 @@
 #ifndef IMATERIASOURCE_HPP
 # define IMATERIASOURCE_HPP
-# pragma once
+
 
 # include <iostream>
 # include <string>

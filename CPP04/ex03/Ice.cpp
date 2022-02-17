@@ -30,7 +30,9 @@ Ice::~Ice()
 Ice* Ice::clone(void) const
 {
 	Ice* tmp = new Ice;
-	
+
+	if (tmp == NULL)
+		return NULL;
 	tmp->_type = _type;
 	return tmp;
 }

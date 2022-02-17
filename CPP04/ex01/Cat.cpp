@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cat::Cat()
+Cat::Cat(): Animal()
 {
 	type = "Cat";
 	_brain = new Brain;

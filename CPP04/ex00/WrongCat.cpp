@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-WrongCat::WrongCat()
+WrongCat::WrongCat(): WrongAnimal()
 {
 	type = "Wrong Cat";
 	std::cout << "😈 A " << type << " is created." << std::endl;

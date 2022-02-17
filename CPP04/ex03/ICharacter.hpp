@@ -1,6 +1,6 @@
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
-# pragma once
+
 
 # include <iostream>
 # include <string>

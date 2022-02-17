@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Dog::Dog()
+Dog::Dog(): Animal()
 {
 	type = "Dog";
 	_brain = new Brain;
@@ -35,7 +35,7 @@ Dog::~Dog()
 
 Dog &				Dog::operator=( Dog const & rhs )
 {
-		Animal::operator=(rhs);
+	Animal::operator=(rhs);
     type = "Dog";
 	if (this != &rhs)
 		*_brain = *rhs._brain;

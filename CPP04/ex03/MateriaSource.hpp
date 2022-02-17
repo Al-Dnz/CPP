@@ -1,6 +1,6 @@
 #ifndef MATERIASOURCE_HPP
 # define MATERIASOURCE_HPP
-# pragma once
+
 
 # include <iostream>
 # include <string>

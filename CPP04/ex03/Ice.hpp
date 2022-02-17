@@ -1,6 +1,6 @@
 #ifndef ICE_HPP
 # define ICE_HPP
-# pragma once
+
 
 # include <iostream>
 # include <string>

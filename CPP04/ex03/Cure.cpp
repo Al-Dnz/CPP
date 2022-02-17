@@ -29,7 +29,9 @@ Cure::~Cure()
 Cure* Cure::clone(void) const
 {
  	Cure* tmp = new Cure;
-	
+
+	if (tmp == NULL)
+		return NULL;
 	tmp->_type = _type;
 	return tmp;
 }

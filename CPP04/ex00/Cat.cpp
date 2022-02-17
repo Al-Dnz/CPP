@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cat::Cat()
+Cat::Cat(): Animal()
 {
 	type = "Cat";
 	std::cout << "😺 A cat is created." << std::endl;
@@ -34,7 +34,6 @@ Cat::~Cat()
 Cat &				Cat::operator=( Cat const &rhs )
 {
 	Animal::operator=(rhs);
-    type = "Cat";
 	return *this;
 }
 

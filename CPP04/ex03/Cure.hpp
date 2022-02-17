@@ -1,6 +1,6 @@
 #ifndef CURE_HPP
 # define CURE_HPP
-# pragma once
+
 
 # include <iostream>
 # include <string>
