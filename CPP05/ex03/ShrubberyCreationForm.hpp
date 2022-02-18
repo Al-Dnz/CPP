@@ -19,8 +19,7 @@ class ShrubberyCreationForm: public Form
 		~ShrubberyCreationForm();
 		ShrubberyCreationForm &		operator=( ShrubberyCreationForm const & rhs );
 
-    void                      action(void);
-
+    void	execute(Bureaucrat const & executor) const;
 };
 
 #endif /* ******************************************* SHRUBBERYCREATIONFORM_H */

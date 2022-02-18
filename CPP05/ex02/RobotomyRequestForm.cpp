@@ -42,21 +42,22 @@ RobotomyRequestForm &				RobotomyRequestForm::operator=( RobotomyRequestForm con
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void RobotomyRequestForm::action(void)
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-
-	
+	if ( executor.getGrade() > _execution_grade)
+	{
+		throw Bureaucrat::GradeTooLowException();
+		return;
+	}
 	// generate a seed rand
 	srand(time(NULL) + rand());
 	
-
 	int n = rand();
 	std::cout << "🤖 Bbbrzzzzzzzzzzzzzzzzzzzz" <<std::endl;
 	if ( n % 2)
 		std::cout << "✅ Success: " << _target << " has been robotomized" <<std::endl;
 	else
 		std::cout << "❌ Fail : " << _target << " has not been robotomized" <<std::endl;
-
 }
 
 

@@ -5,20 +5,64 @@
 #include "PresidentialPardonForm.hpp"
 
 int main(void)
-{
-	ShrubberyCreationForm s("fucking_ascii_tree");
-	s.action();
+{	
+	std::cout << "\n*************************SUCCESS TESTS***************" <<std::endl;
+	Bureaucrat le_prez("le_prez", 1);
+	std::cout << le_prez << std::endl;
+
+	ShrubberyCreationForm s("le_prez_ascii_tree");
+	s.execute(le_prez);
 	std::cout << std::endl;
 
 	RobotomyRequestForm r("bebert");
-	r.action();
-	r.action();
-	r.action();
-	r.action();
+	r.execute(le_prez);
+	r.execute(le_prez);
+	r.execute(le_prez);
+	r.execute(le_prez);
 	std::cout << std::endl;
 
 	PresidentialPardonForm p("jacky");
-	p.action();
+	p.execute(le_prez);
+
+	std::cout << "\n*************************FAILED TESTS***************" <<std::endl;
+	Bureaucrat le_loser("le_loser", 150);
+	std::cout << le_loser << std::endl;
+	try
+	{
+			ShrubberyCreationForm s("le_loser_ascii_tree");
+			s.execute(le_loser);
+			std::cout << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	try
+	{
+			RobotomyRequestForm r("bebert");
+			r.execute(le_loser);
+			r.execute(le_loser);
+			r.execute(le_loser);
+			r.execute(le_loser);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	try
+	{
+			PresidentialPardonForm p("jacky");
+			p.execute(le_loser);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+
+
 
 	return 0;
 }

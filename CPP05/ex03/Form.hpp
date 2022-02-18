@@ -31,7 +31,7 @@ class Form
 		void			beSigned(Bureaucrat bureaucrat);
 		void			setSignature();
 
-		virtual void	action(void) = 0;
+		virtual void	execute(Bureaucrat const & executor) const = 0;
 
 	/* __________________________EXCEPTION_CLASS_________________________________*/
 

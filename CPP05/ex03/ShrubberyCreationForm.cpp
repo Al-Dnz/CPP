@@ -43,9 +43,13 @@ ShrubberyCreationForm &				ShrubberyCreationForm::operator=( ShrubberyCreationFo
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void ShrubberyCreationForm::action(void)
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-
+        if ( executor.getGrade() > _execution_grade)
+	{
+		throw Bureaucrat::GradeTooLowException();
+		return;
+	}
 	const std::string ascii_tree = 
         "                                                 .\n"
         "                                      .         ;  \n"

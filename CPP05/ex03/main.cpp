@@ -8,10 +8,11 @@
 int main(void)
 {
 	Intern someRandomIntern;
+	Bureaucrat le_prez("le_prez", 1);
 
 	Form* rrf;
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-	rrf->action();
+	rrf->execute(le_prez);
 	delete rrf;
 	std::cout << std::endl;
 
@@ -19,7 +20,7 @@ int main(void)
 	form1 = someRandomIntern.makeForm("shrubbery creation", "Bender");
 	if (form1)
 	{
-		form1->action();
+		form1->execute(le_prez);
 		delete form1;
 	}
 	
@@ -29,7 +30,7 @@ int main(void)
 	form2 = someRandomIntern.makeForm("presidential pardon", "Bender");
 	if (form2)
 	{
-		form2->action();
+		form2->execute(le_prez);
 		delete form2;
 	}
 	
@@ -39,7 +40,7 @@ int main(void)
 	form3 = someRandomIntern.makeForm("shitty request", "Bender");
 	if (form3)
 	{
-		form3->action();
+		form3->execute(le_prez);
 		delete form3;
 	}
 	std::cout << std::endl;

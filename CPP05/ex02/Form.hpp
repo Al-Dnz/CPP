@@ -9,14 +9,13 @@
 class Bureaucrat;
 class Form
 {
-	private:
+	protected:
 		const std::string	_name;
 		bool				_signed;
 		const int			_signature_grade;
 		const int			_execution_grade;			
 
 	public:
-
 		Form();
 		Form(std::string name, bool is_signed, int s_grade, int e_grade);
 		Form( Form const & src );
@@ -31,7 +30,8 @@ class Form
 		void			beSigned(Bureaucrat bureaucrat);
 		void			setSignature();
 
-		virtual void	action(void) = 0;
+		virtual void	execute(Bureaucrat const & executor) const = 0;
+
 
 	/* __________________________EXCEPTION_CLASS_________________________________*/
 
