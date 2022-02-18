@@ -13,8 +13,8 @@ class Form
 	private:
 		const std::string	_name;
 		bool				_signed;
-		int					_signature_grade;
-		int					_execution_grade;			
+		const int			_signature_grade;
+		const int			_execution_grade;			
 
 	public:
 

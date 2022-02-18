@@ -4,19 +4,15 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Form::Form(std::string name, bool is_signed, int s_grade, int e_grade): _name(name)
+Form::Form(std::string name, bool is_signed, int s_grade, int e_grade): _name(name), _signed(is_signed), _signature_grade(s_grade), _execution_grade(e_grade)
 {
-	_signed = is_signed;
 	if (s_grade < 1 || e_grade < 1)
 		throw Form::GradeTooHighException();
 	if (s_grade > 150 || e_grade > 150)
 		throw Form::GradeTooLowException();
-	_signature_grade = s_grade;
-	_execution_grade = e_grade;
-
 }
 
-Form::Form( const Form & src )
+Form::Form( const Form & src ): _name(src._name), _signed(src._signed), _signature_grade(src._signature_grade), _execution_grade(src._execution_grade)
 {
 	*this = src;
 }
@@ -40,9 +36,10 @@ Form &				Form::operator=( Form const & rhs )
 	if ( this != &rhs )
 	{
 		const_cast<std::string&>(this->_name) = rhs.getName();
+		const_cast<int&>(this->_signature_grade) = rhs.getSignatureGrade();
+		const_cast<int&>(this->_execution_grade) = rhs.getExecutionGrade();
 		this->_signed = rhs.getSigned();
-		this->_signature_grade = rhs.getSignatureGrade();
-		this->_execution_grade = rhs.getExecutionGrade();
+		
 	}
 	return *this;
 }
