@@ -42,7 +42,6 @@ class Form
 			{
 				return ("Grade's form is too high!");
 			}
-
 	};
 
 	class GradeTooLowException: public std::exception
@@ -52,7 +51,15 @@ class Form
 			{
 				return ("Grade's form is too low");
 			}
+	};
 
+	class UnsignedFormException: public std::exception
+	{
+		public:
+			virtual const char *what() const throw()
+			{
+				return ("Form is not signed!");
+			}
 	};
 
 };

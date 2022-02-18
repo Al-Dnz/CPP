@@ -49,6 +49,11 @@ PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardo
 
 void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
+	 if (_signed == false)
+	{
+		throw Form::UnsignedFormException();
+                return ;
+	}
 	if ( executor.getGrade() > _execution_grade)
 	{
 		throw Bureaucrat::GradeTooLowException();

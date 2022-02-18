@@ -44,11 +44,17 @@ RobotomyRequestForm &				RobotomyRequestForm::operator=( RobotomyRequestForm con
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
+	if (_signed == false)
+	{
+		throw Form::UnsignedFormException();
+		return ;
+	}
 	if ( executor.getGrade() > _execution_grade)
 	{
 		throw Bureaucrat::GradeTooLowException();
 		return;
 	}
+	std::cout << executor.getName() << "executed " << _name << std::endl; 
 	// generate a seed rand
 	srand(time(NULL) + rand());
 	

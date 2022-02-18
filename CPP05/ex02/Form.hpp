@@ -55,6 +55,16 @@ class Form
 
 	};
 
+	class UnsignedFormException: public std::exception
+	{
+		public:
+			virtual const char *what() const throw()
+			{
+				return ("Form is not signed!");
+			}
+
+	};
+
 };
 
 std::ostream &			operator<<( std::ostream & o, Form const & i );

@@ -49,11 +49,17 @@ PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardo
 
 void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
+	if (_signed == false)
+	{
+		throw Form::UnsignedFormException();
+		return ;
+	}
 	if ( executor.getGrade() > _execution_grade)
 	{
 		throw Bureaucrat::GradeTooLowException();
 		return;
 	}
+	std::cout << executor.getName() << "executed " << _name << std::endl; 
 	std::cout << "⚜ " << _target << " has been forgiven by Zafod Beeblebrox" << std::endl;
 }
 

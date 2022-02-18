@@ -12,6 +12,7 @@ int main(void)
 
 	Form* rrf;
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	rrf->beSigned(le_prez);
 	rrf->execute(le_prez);
 	delete rrf;
 	std::cout << std::endl;
@@ -20,26 +21,27 @@ int main(void)
 	form1 = someRandomIntern.makeForm("shrubbery creation", "Bender");
 	if (form1)
 	{
+		form1->beSigned(le_prez);
 		form1->execute(le_prez);
 		delete form1;
 	}
-	
 	std::cout << std::endl;
 
 	Form* form2;
 	form2 = someRandomIntern.makeForm("presidential pardon", "Bender");
 	if (form2)
 	{
+		form2->beSigned(le_prez);
 		form2->execute(le_prez);
 		delete form2;
 	}
-	
 	std::cout << std::endl;
 
 	Form* form3;
 	form3 = someRandomIntern.makeForm("shitty request", "Bender");
 	if (form3)
 	{
+		form3->beSigned(le_prez);
 		form3->execute(le_prez);
 		delete form3;
 	}
