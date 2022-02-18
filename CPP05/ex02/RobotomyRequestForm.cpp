@@ -51,11 +51,11 @@ void RobotomyRequestForm::action(void)
 	
 
 	int n = rand();
-	std::cout << "Bbbrzzzzzzzzzzzzzzzzzzzz" <<std::endl;
+	std::cout << "🤖 Bbbrzzzzzzzzzzzzzzzzzzzz" <<std::endl;
 	if ( n % 2)
-		std::cout << "Success: " << _target << " has been robotomized" <<std::endl;
+		std::cout << "✅ Success: " << _target << " has been robotomized" <<std::endl;
 	else
-		std::cout << "Fail : " << _target << " has not been robotomized" <<std::endl;
+		std::cout << "❌ Fail : " << _target << " has not been robotomized" <<std::endl;
 
 }
 

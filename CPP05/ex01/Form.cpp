@@ -81,13 +81,13 @@ void			Form::beSigned(Bureaucrat bureaucrat)
 	}
 	if (bureaucrat.getGrade() > _signature_grade)
 	{
-		std::cout << bureaucrat.getName() << " cannot sign because: ";
+		std::cout << bureaucrat.getName() << " (grade " << bureaucrat.getGrade() << ") cannot sign because: ";
 		throw Bureaucrat::GradeTooLowException();
 	}
 	else
 	{
 		_signed = true;
-		std::cout << bureaucrat.getName() << " signs " << _name <<  std::endl;
+		std::cout << bureaucrat.getName() << " (grade " << bureaucrat.getGrade() << ") signs " << _name <<  std::endl;
 	}
 }
 

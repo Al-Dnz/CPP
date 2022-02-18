@@ -87,10 +87,10 @@ Form* Intern::makeForm(std::string s1, std::string s2)
 	};
 	if (index == -1)
 	{
-		std::cout << s1 << ": invalid form request" << std::endl;
+		std::cout << "⛔ " << s1 << ": invalid form request" << std::endl;
 		return NULL;
 	}
-	std::cout << "Intern creates "<< s1 << " form" <<  std::endl;
+	std::cout << "🔵 Intern creates "<< s1 << " form" <<  std::endl;
 	return (this->*method[index])(s2);
 }
 

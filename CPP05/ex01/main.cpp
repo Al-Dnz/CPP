@@ -35,6 +35,26 @@ int main(void)
 		std::cerr << e.what() << '\n';
 	}
 
+	try
+	{		
+		Form f2("f2", true, 22, 0);
+		std::cout << f2 << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	try
+	{		
+		Form f3("f3", true, 22, 153);
+		std::cout << f3 << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
 	std::cout << "\n\n********** Test form signature with Form::beSigned******************************"<< std::endl;
 	 
 	try

@@ -6,14 +6,16 @@
 
 int main(void)
 {
-	ShrubberyCreationForm s("my_ascii_tree");
+	ShrubberyCreationForm s("fucking_ascii_tree");
 	s.action();
+	std::cout << std::endl;
 
 	RobotomyRequestForm r("bebert");
 	r.action();
 	r.action();
 	r.action();
 	r.action();
+	std::cout << std::endl;
 
 	PresidentialPardonForm p("jacky");
 	p.action();

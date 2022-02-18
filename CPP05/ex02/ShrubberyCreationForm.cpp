@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): Form(target + "_shrubbery", false ,137, 147)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target): Form(target + "_shrubbery", false ,145, 137)
 {
 	_target = target;
 }
