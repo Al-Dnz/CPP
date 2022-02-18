@@ -4,7 +4,9 @@
 # include <iostream>
 # include <string>
 # include <stdexcept>
+# include "Form.hpp"
 
+class Form;
 class Bureaucrat
 {
 
@@ -19,9 +21,10 @@ class Bureaucrat
 		Bureaucrat &	operator=( Bureaucrat const & rhs );
 
 		std::string		getName(void) const;
-		unsigned int	getGrade(void) const;
+		int				getGrade(void) const;
 		void			promote(void);
 		void			retrograde(void);
+		void			signForm(Form &form);
 
 /* __________________________EXCEPTION_CLASS_________________________________*/
 
@@ -50,5 +53,5 @@ std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i );
 
 #endif /* ****************************************************** BUREAUCRAT_H */
 
-typedef Bureaucrat::GradeTooHighException BGradeTooHighException;
-typedef Bureaucrat::GradeTooLowException BGradeTooLowException;
+// typedef Bureaucrat::GradeTooHighException BGradeTooHighException;
+// typedef Bureaucrat::GradeTooLowException BGradeTooLowException;

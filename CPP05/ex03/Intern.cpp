@@ -29,10 +29,9 @@ Intern::~Intern()
 
 Intern &				Intern::operator=( Intern const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+	}
 	return *this;
 }
 
@@ -41,22 +40,22 @@ Intern &				Intern::operator=( Intern const & rhs )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-Form* Intern::ShrubberyCreationFormGen(std::string target)
+Form* 	Intern::ShrubberyCreationFormGen(std::string target)
 {
 	return new ShrubberyCreationForm(target);
 }
 
-Form* Intern::RobotomyRequestFormGen(std::string target)
+Form* 	Intern::RobotomyRequestFormGen(std::string target)
 {
 	return new RobotomyRequestForm(target);
 }
 
-Form* Intern::PresidentialPardonFormGen(std::string target)
+Form* 	Intern::PresidentialPardonFormGen(std::string target)
 {
 	return new PresidentialPardonForm(target);
 }
 
-int Intern::getIndex(std::string s)
+int 	Intern::getIndex(std::string s)
 {
 	const std::string request_arr[3] =
 	{

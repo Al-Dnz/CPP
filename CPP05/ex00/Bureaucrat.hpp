@@ -19,7 +19,7 @@ class Bureaucrat
 		Bureaucrat &	operator=( Bureaucrat const & rhs );
 
 		std::string		getName(void) const;
-		unsigned int	getGrade(void) const;
+		int				getGrade(void) const;
 		void			promote(void);
 		void			retrograde(void);
 

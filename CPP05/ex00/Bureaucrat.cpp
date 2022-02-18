@@ -77,7 +77,7 @@ void			Bureaucrat::promote(void)
 
 
 std::string		Bureaucrat::getName(void) const { return _name; }
-unsigned int	Bureaucrat::getGrade(void) const { return _grade; }
+int				Bureaucrat::getGrade(void) const { return _grade; }
 
 
 /*

@@ -18,7 +18,7 @@ class Intern
 		~Intern();
 		Intern &		operator=( Intern const & rhs );
 		
-		Form* makeForm(std::string s1, std::string s2);
+		Form*	makeForm(std::string s1, std::string s2);
 
 	private:
 		int		getIndex(std::string s);

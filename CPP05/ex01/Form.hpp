@@ -6,13 +6,15 @@
 
 # include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
 	private:
 		const std::string	_name;
 		bool				_signed;
-		unsigned int		_signature_grade;
-		unsigned int		_execution_grade;			
+		int					_signature_grade;
+		int					_execution_grade;			
 
 	public:
 
@@ -23,10 +25,11 @@ class Form
 
 		std::string		getName(void) const;
 		bool			getSigned(void) const;
-		unsigned int	getSignatureGrade(void) const;
-		unsigned int	getExecutionGrade(void) const;
+		int				getSignatureGrade(void) const;
+		int				getExecutionGrade(void) const;
 
 		void			beSigned(Bureaucrat bureaucrat);
+		void			setSignature();
 
 	/* __________________________EXCEPTION_CLASS_________________________________*/
 
@@ -35,7 +38,7 @@ class Form
 		public:
 			virtual const char *what() const throw()
 			{
-				return ("Grade's bureaucrat is too high to manage this form!");
+				return ("Grade's Form is too high");
 			}
 
 	};
@@ -45,7 +48,7 @@ class Form
 		public:
 			virtual const char *what() const throw()
 			{
-				return ("Grade's bureaucrat is too low to manage this form!");
+				return ("Grade's Form is too low!");
 			}
 
 	};

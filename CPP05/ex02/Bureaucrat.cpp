@@ -72,13 +72,33 @@ void			Bureaucrat::promote(void)
 		_grade--;
 }
 
+
+void			Bureaucrat::signForm(Form &form)
+{
+	if (form.getSigned() == true)
+	{
+		std::cout << "Form is still signed" << std::endl;
+		return ;
+	}
+	if (_grade > form.getSignatureGrade())
+	{
+		std::cout << _name << "(grade " << _grade << ") can't sign " << form.getName() << " because: " << std::endl;
+		throw Bureaucrat::GradeTooLowException();
+	}
+	else
+	{
+		form.setSignature();
+		std::cout << _name << "(grade " << _grade << ") signs " << form.getName() <<std::endl;
+	}
+}
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
 
 std::string		Bureaucrat::getName(void) const { return _name; }
-unsigned int	Bureaucrat::getGrade(void) const { return _grade; }
+int				Bureaucrat::getGrade(void) const { return _grade; }
 
 
 /*

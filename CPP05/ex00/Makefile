@@ -11,8 +11,6 @@ CXXFLAGS = -std=c++98 -Wall -Werror -Wextra
 
 OBJ = $(SRCS:.cpp=.o)
 
-
-
 all:
 	@$(MAKE)  $(NAME)
 

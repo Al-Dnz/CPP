@@ -8,9 +8,9 @@ Form::Form(std::string name, bool is_signed, int s_grade, int e_grade): _name(na
 {
 	_signed = is_signed;
 	if (s_grade < 1 || e_grade < 1)
-		throw Form::GradeTooLowException();
-	if (s_grade > 150 || e_grade > 150)
 		throw Form::GradeTooHighException();
+	if (s_grade > 150 || e_grade > 150)
+		throw Form::GradeTooLowException();
 	_signature_grade = s_grade;
 	_execution_grade = e_grade;
 
@@ -39,6 +39,7 @@ Form &				Form::operator=( Form const & rhs )
 {
 	if ( this != &rhs )
 	{
+		const_cast<std::string&>(this->_name) = rhs.getName();
 		this->_signed = rhs.getSigned();
 		this->_signature_grade = rhs.getSignatureGrade();
 		this->_execution_grade = rhs.getExecutionGrade();
@@ -71,12 +72,11 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 
 std::string		Form::getName(void) const {return _name;}
 bool			Form::getSigned(void) const {return _signed;}
-unsigned int				Form::getSignatureGrade(void) const {return _signature_grade;}
-unsigned int				Form::getExecutionGrade(void) const {return _execution_grade;}
+int				Form::getSignatureGrade(void) const {return _signature_grade;}
+int				Form::getExecutionGrade(void) const {return _execution_grade;}
 
 void			Form::beSigned(Bureaucrat bureaucrat)
 {
-	
 	if (_signed == true)
 	{
 		std::cout << _name << " is still signed" << std::endl;
@@ -85,7 +85,7 @@ void			Form::beSigned(Bureaucrat bureaucrat)
 	if (bureaucrat.getGrade() > _signature_grade)
 	{
 		std::cout << bureaucrat.getName() << " cannot sign because: ";
-		throw Form::GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException();
 	}
 	else
 	{
@@ -93,6 +93,8 @@ void			Form::beSigned(Bureaucrat bureaucrat)
 		std::cout << bureaucrat.getName() << " signs " << _name <<  std::endl;
 	}
 }
+
+void			Form::setSignature() { _signed = true;}
 
 
 /* ************************************************************************** */
