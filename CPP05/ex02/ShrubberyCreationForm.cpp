@@ -86,7 +86,10 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
         "                      ;%@@@@%%:;;;.       \n"
         "                  ...;%@@@@@%%:;;;;,.. \n";
 
-	std::ofstream outfile (_target + "_shrubbery");
+        std::string filename = _target + "_shrubbery";
+        const char *c_filename = filename.c_str();
+	std::ofstream outfile;
+        outfile.open(c_filename);
 	outfile << ascii_tree << std::endl;
 	outfile.close();
 }
