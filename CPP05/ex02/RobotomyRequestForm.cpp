@@ -54,7 +54,6 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 		throw Bureaucrat::GradeTooLowException();
 		return;
 	}
-	std::cout << executor.getName() << "executed " << _name << std::endl; 
 	// generate a seed rand
 	srand(time(NULL) + rand());
 	

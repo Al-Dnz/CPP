@@ -27,6 +27,10 @@ int main(void)
 	le_prez.signForm(p);
 	p.execute(le_prez);
 
+	PresidentialPardonForm z("neuneu");
+	le_prez.signForm(z);
+	le_prez.executeForm(z);
+
 	std::cout << "\n*************************FAILED UNSIGNED TESTS***************" <<std::endl;
 
 	try
@@ -89,11 +93,21 @@ int main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-
 	try
 	{
 			PresidentialPardonForm p("jacky");
 			p.execute(le_loser);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	try
+	{
+			PresidentialPardonForm k("neuneu_2");
+			le_prez.signForm(k);
+			le_loser.executeForm(k);
 	}
 	catch(const std::exception& e)
 	{

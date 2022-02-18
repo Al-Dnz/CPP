@@ -86,7 +86,7 @@ void			Bureaucrat::signForm(Form &form)
 	else
 	{
 		form.setSignature();
-		std::cout << _name << "(grade " << _grade << ") signs " << form.getName() <<std::endl;
+		std::cout << "🖋 " << _name << "(grade " << _grade << ") signs " << form.getName() <<std::endl;
 	}
 }
 

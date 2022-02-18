@@ -86,8 +86,19 @@ void			Bureaucrat::signForm(Form &form)
 	else
 	{
 		form.setSignature();
-		std::cout << _name << "(grade " << _grade << ") signs " << form.getName() <<std::endl;
+		std::cout << "🖋 " << _name << "(grade " << _grade << ") signs " << form.getName() <<std::endl;
 	}
+}
+
+void		Bureaucrat::executeForm(Form const & form)
+{
+	 if ( _grade > form.getExecutionGrade())
+	{
+		throw Bureaucrat::GradeTooLowException();
+		return;
+	}
+	std::cout << "🎙 "<< _name << " execute " << form.getName() << std::endl;
+	form.execute(*this);
 }
 
 /*

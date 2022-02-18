@@ -58,8 +58,7 @@ void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 	{
 		throw Bureaucrat::GradeTooLowException();
 		return;
-	}
-	std::cout << executor.getName() << "executed " << _name << std::endl; 
+	} 
 	std::cout << "⚜ " << _target << " has been forgiven by Zafod Beeblebrox" << std::endl;
 }
 
