@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Array.hpp"
-#include "Array.tpp"
+// #include "Array.tpp"
 
 #define MAX_VAL 10
 int main(int, char**)
@@ -71,6 +71,6 @@ int main(int, char**)
     }
     std::cout << numbers << std::endl;
 
-    delete [] mirror;//
+    delete [] mirror;
     return 0;
 }

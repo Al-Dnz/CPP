@@ -96,7 +96,6 @@ std::ostream &			operator<<( std::ostream & o, Array<T>  & array )
 template <typename T>
 unsigned int	Array<T>::size(void) const
 {
-	// return  (sizeof(_arr) / sizeof(T));
 	return _size;
 }
 
