@@ -9,8 +9,10 @@ class A: public Base
 {
 
 	public:
-		A(){std::cout << "An instance of class A has been created" << std::endl;};
-		~A(){};
+		A();
+		~A();
+		A( A const & src );
+		A &		operator=( A const & rhs );
 
 	private:
 

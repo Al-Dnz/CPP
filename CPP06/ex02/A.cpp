@@ -1,16 +1,17 @@
-#include "Data.hpp"
+#include "A.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Data::Data()
+A::A()
 {
+	std::cout << "An instance of class A has been created" << std::endl;
 }
 
-Data::Data( const Data & src )
+A::A( const A & src )
 {
-	*this = src; 
+	*this = src;
 }
 
 
@@ -18,7 +19,7 @@ Data::Data( const Data & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Data::~Data()
+A::~A()
 {
 }
 
@@ -27,16 +28,10 @@ Data::~Data()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Data &				Data::operator=( Data const & rhs )
+A &				A::operator=( A const & rhs )
 {
 	(void)rhs;
 	return *this;
-}
-
-std::ostream &			operator<<( std::ostream & o, Data const & i )
-{
-	(void)i;
-	return o;
 }
 
 
