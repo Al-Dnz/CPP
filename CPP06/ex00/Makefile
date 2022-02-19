@@ -9,7 +9,7 @@ INC = header.hpp
 
 CCXX = clang++
 
-CXXFLAGS = -std=c++98 -Wall -Werror -Wextra
+CXXFLAGS = -std=c++98 -Wall -Werror -Wextra -g -fstandalone-debug
 
 OBJ = $(SRCS:.cpp=.o)
 

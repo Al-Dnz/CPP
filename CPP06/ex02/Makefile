@@ -1,6 +1,9 @@
 NAME = prog
 
 SRCS =	main.cpp \
+		A.cpp \
+		B.cpp \
+		C.cpp \
 
 INC = "" 
 

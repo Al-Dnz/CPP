@@ -3,12 +3,14 @@
 
 int		count_decimal(std::string str)
 {
-	int	i = 0;
+	unsigned long	i = 0;
 	int count = 0;
 
 	while (str[i] && str[i] != '.')
 		i++;
 	i++;
+	if (i > str.length() - 1)
+		return 0;
 	while(str[i] && str[i] != 'f')
 	{
 		count++;
@@ -17,18 +19,17 @@ int		count_decimal(std::string str)
 	return count;
 }
 
-void	displayer(std::string str, int i, float f, double d, char c)
+void	displayer(std::string const str, int i, float f, double d, char c)
 {
 	int decimal_number = count_decimal(str) < 1 ? 1 : count_decimal(str);
-
 	std::cout <<  "char: ";
 	if (c == 0)
 		std::cout << "Non displayable" << std::endl;
 	else
 		std::cout << c << std::endl;
 	
-	std::cout << "int: " ;
-	if (integer_overflow(str))
+	std::cout << "int: ";
+	if (c == 0 && integer_overflow(str))
 		std::cout << "impossible" << std::endl;
 	else
 		std::cout << i << std::endl;
@@ -38,12 +39,14 @@ void	displayer(std::string str, int i, float f, double d, char c)
 
 void	inf_case_displayer(std::string str, int i, float f, double d, char c)
 {
+	(void)str;
+	(void)i;
 	std::cout <<  "char: ";
 	if (c == 0)
 		std::cout << "Non displayable" << std::endl;
 	else
 		std::cout << c << std::endl;
-	std::cout << "int: " << i << std::endl;
+	std::cout << "int: " << "impossible" << std::endl;
 	std::cout << "float: "  << f << "f" << std::endl;
 	std::cout << "double: " << d << std::endl;
 }

@@ -8,7 +8,7 @@ Base* generate(void)
 	int	min(0);
 	int	max(2);
 	int randNum;
-	Base* base;
+	Base* base = NULL;
 
 	srand(time(NULL)+ rand());
 	randNum = rand()%(max-min + 1) + min;
