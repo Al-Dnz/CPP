@@ -26,12 +26,13 @@ void	displayer(std::string str, int i, float f, double d, char c)
 		std::cout << "Non displayable" << std::endl;
 	else
 		std::cout << c << std::endl;
-	std::cout << "int: " << i << std::endl;
-	if (i <= 9999999)
-		std::cout << "float: "  << std::fixed << std::setprecision(decimal_number > 15 ? 15 : decimal_number) << f << "f" << std::endl;
+	
+	std::cout << "int: " ;
+	if (integer_overflow(str))
+		std::cout << "impossible" << std::endl;
 	else
-		std::cout << "float: impossible" << std::endl;
-
+		std::cout << i << std::endl;
+	std::cout << "float: "  << std::fixed << std::setprecision(decimal_number > 15 ? 15 : decimal_number) << f << "f" << std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(decimal_number > 47 ? 47 : decimal_number) << d << std::endl;
 }
 

@@ -9,12 +9,9 @@ INC = header.hpp
 
 CCXX = clang++
 
-CXXFLAGS = -std=c++98 -g -fstandalone-debug #-Wall -Werror -Wextra
+CXXFLAGS = -std=c++98 -Wall -Werror -Wextra
 
 OBJ = $(SRCS:.cpp=.o)
-
-# .c.o:
-# 	${CCXX} ${CXXFLAGS} -c$< -o ${<:.c=.o}
 
 all:
 	@$(MAKE)  $(NAME)

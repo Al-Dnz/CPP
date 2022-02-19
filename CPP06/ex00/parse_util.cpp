@@ -58,7 +58,7 @@ int find_index_type(std::string str)
 		return 6;
 	else if (str == "-inff" || str == "- inff")
 		return 7;
-	else if (is_full_digit(str))
+	else if (is_full_digit(str) && !integer_overflow(str))
 		return 0;
 	else if (is_full_digit(str, '.') && char_occurence(str, '.') == 1 && str[str.length() - 1] != '.')
 		return 1;

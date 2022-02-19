@@ -22,12 +22,13 @@ int			main(int argc, char **argv)
 		return 1;
 	}
 	str = argv[1];
+	str.erase(0, std::min(str.find_first_not_of('0'), str.size() - 1));
 	index = find_index_type(str);
-	if(index > -1 && index < 3 && integer_overflow(str))
-	{
-		std::cout << "Error:\n Integer overflow" << std::endl;
-		return 2;
-	}
+	// if(index > -1 && index < 3 && integer_overflow(str))
+	// {
+	// 	std::cout << "Error:\n Integer overflow" << std::endl;
+	// 	return 2;
+	// }
 	switch(index)
 	{
 		case -1:
@@ -60,6 +61,5 @@ int			main(int argc, char **argv)
 		default:
 			break;
 	}
-
 	return 0;
 }
