@@ -1,8 +1,8 @@
 #include "header.hpp"
 
-void	int_case(std::string str, t_data *data)
+void	int_case(std::string str, t_data *data, char **argv)
 {
-	data->n = std::stoi(str);
+	data->n =  atoi(argv[1]);;
 	data->f = static_cast<float>(data->n);
 	data->d = static_cast<double>(data->n);
 	if (isprint(data->n))
@@ -10,32 +10,32 @@ void	int_case(std::string str, t_data *data)
 	displayer(str, data->n, data->f, data->d, data->c);
 }
 
-void	double_case(std::string str, t_data *data)
+void	double_case(std::string str, t_data *data, char **argv)
 {
-	data->d = std::stod(str);
+	data->d = strtod(argv[1], NULL);
 	data->n = static_cast<int>(data->d);
 	data->f = static_cast<float>(data->d);
 	if (isprint(data->n))
-		data->c = static_cast<char>(data->n);
+		data->c = static_cast<char>(data->d);
 	displayer(str, data->n, data->f, data->d, data->c);
 }
 
-void	float_case(std::string str, t_data *data)
+void	float_case(std::string str, t_data *data, char **argv)
 {
-	data->f = std::stof(str);
+	data->f = strtof(argv[1], NULL);
 	data->n = static_cast<int>(data->f);
 	data->d = static_cast<double>(data->f);
 	if (isprint(data->n))
-		data->c = static_cast<char>(data->n);
+		data->c = static_cast<char>(data->f);
 	displayer(str, data->n, data->f, data->d, data->c);
 }
 
 void	char_case(std::string str, t_data *data)
 {
 	data->c = str[0];
+	data->n = static_cast<int>(data->c);
 	data->f = static_cast<float>(data->c);
-	data->n = static_cast<int>(data->f);
-	data->d = static_cast<double>(data->f);
+	data->d = static_cast<double>(data->c);
 	displayer(str, data->n, data->f, data->d, data->c);
 }
 

@@ -13,6 +13,7 @@ int			main(int argc, char **argv)
 	t_data		data;
 	int			index;
 	std::string	str;
+	std::string	dup;
 	
 	init_data(&data);
 	if (argc != 2)
@@ -22,26 +23,24 @@ int			main(int argc, char **argv)
 		return 1;
 	}
 	str = argv[1];
-	str.erase(0, std::min(str.find_first_not_of('0'), str.size() - 1));
+	dup = str;
+	clean_str(str);
 	index = find_index_type(str);
-	// if(index > -1 && index < 3 && integer_overflow(str))
-	// {
-	// 	std::cout << "Error:\n Integer overflow" << std::endl;
-	// 	return 2;
-	// }
+	if (find_index_type(dup) == -1)
+		index = - 1;
 	switch(index)
 	{
 		case -1:
 			nan_case_displayer();
 			break;
 		case 0:
-			int_case(str, &data);
+			int_case(str, &data, argv);
 			break;
 		case 1:
-			double_case(str, &data);
+			double_case(str, &data, argv);
 			break;
 		case 2:
-			float_case(str, &data);
+			float_case(str, &data, argv);
 			break;
 		case 3:
 			char_case(str, &data);
@@ -63,3 +62,5 @@ int			main(int argc, char **argv)
 	}
 	return 0;
 }
+
+
