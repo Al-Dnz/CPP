@@ -63,6 +63,16 @@ class Array
 				return _arr[index];
 		};
 
+		const T&	operator[](const unsigned int index) const
+		{
+			if (_arr == NULL)
+				throw(Array<T>::EmptyArrayError());
+			if (index < 0 || index >= _size)
+				throw(Array<T>::ArrayIndexError());
+			else
+				return _arr[index];
+		};
+
 		unsigned int	size(void) const
 		{
 			//return  (sizeof(_arr) / sizeof(T));
@@ -92,6 +102,22 @@ class Array
 
 template <typename T>
 std::ostream &			operator<<( std::ostream & o, Array<T>  & array )
+{
+	size_t len = array.size();
+
+	o << "[ ";
+	for(size_t i = 0; i < len; i++)
+	{
+		o << array[i];
+		if (i != len - 1)
+			o << ", ";
+	}
+	o << "]\n";
+	return o;
+}
+
+template <typename T>
+std::ostream &			operator<<( std::ostream & o, const Array<T>  & array )
 {
 	size_t len = array.size();
 
