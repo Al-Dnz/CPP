@@ -4,11 +4,11 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Span::Span(unsigned int N): _size(N), _data(0)
+Span::Span(unsigned int N):  _data(0), _size(N)
 {
 }
 
-Span::Span(): _size(0), _data(0)
+Span::Span(): _data(0),  _size(0)
 {
 }
 
@@ -77,13 +77,22 @@ void		Span::addNumber(int n)
 
 unsigned int Span::shortestSpan(void) const
 {
+	unsigned int min = longestSpan();
 	std::vector<int> v = _data;
 	if (_data.size() < 2)
 		throw Span::InsufficientValueNumber();
 	else
 	{
 		 sort(v.begin(), v.end());
-		 return (v[1] - v[0]);
+		for (std::vector<int>::const_iterator it = v.begin(); it != v.end() - 1; ++it) 
+		{
+			for (std::vector<int>::const_iterator it2 = it+1; it2 != v.end(); ++it2)
+			{
+				if (static_cast<unsigned int>(abs(*it - *it2)) < min)
+					min = static_cast<unsigned int>(abs(*it - *it2));
+			}
+    	}
+		 return min;
 	}
 
 }
@@ -103,7 +112,8 @@ unsigned int Span::longestSpan(void) const
 
 void Span::addRange(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end)
 {
-	while (begin != end) {
+	while (begin != end) 
+	{
 		Span::addNumber(*begin++);
 	}
 }
