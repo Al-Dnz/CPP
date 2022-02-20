@@ -10,21 +10,26 @@ class Array
 	private:
 		T*				_arr;
 		unsigned int	_size;
-		Array(){};
+		
 
 	public:
+		Array()
+		{
+			_arr = NULL;
+			_size  = 0;
+		};
 
 		Array(unsigned int n)
 		{
 			_arr = new T[n];
 			_size = n;
 			for(unsigned int i = 0; i < n; i++)
-				_arr[i] = 0;
+				_arr[i] = T();
 		};
 
 		Array( const Array & src )
 		{
-			_arr = new T;
+			_arr = NULL;
 			*this = src;
 		};
 
@@ -50,6 +55,8 @@ class Array
 
 		T&	operator[](const unsigned int index)
 		{
+			if (_arr == NULL)
+				throw(Array<T>::EmptyArrayError());
 			if (index < 0 || index >= _size)
 				throw(Array<T>::ArrayIndexError());
 			else
@@ -58,7 +65,7 @@ class Array
 
 		unsigned int	size(void) const
 		{
-			// return  (sizeof(_arr) / sizeof(T));
+			//return  (sizeof(_arr) / sizeof(T));
 			return _size;
 		};
 
@@ -70,6 +77,15 @@ class Array
 			virtual const char *what() const throw()
 			{
 				return ("Array index is out of range");
+			}
+	};
+
+	class EmptyArrayError: public std::exception
+	{
+		public:
+			virtual const char *what() const throw()
+			{
+				return ("Array is null");
 			}
 	};
 };
