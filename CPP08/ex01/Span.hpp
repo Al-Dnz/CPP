@@ -11,8 +11,8 @@ class Span
 
 	private:
 
-		std::vector<int> _data;
-		unsigned int	_size;
+		std::vector<int>	_data;
+		unsigned int		_size;
 
 	public:
 
@@ -56,6 +56,15 @@ class Span
 			virtual const char *what() const throw()
 			{
 				return ("Array does not contain enough number to produce a result");
+			}
+	};
+
+	class TooBigRange: public std::exception
+	{
+		public:
+			virtual const char *what() const throw()
+			{
+				return ("Array does not contain enough space to insert this range");
 			}
 	};
 

@@ -84,15 +84,15 @@ unsigned int Span::shortestSpan(void) const
 	else
 	{
 		 sort(v.begin(), v.end());
-		for (std::vector<int>::const_iterator it = v.begin(); it != v.end() - 1; ++it) 
+		for (std::vector<int>::const_iterator it = v.begin(); it != v.end(); ++it) 
 		{
-			for (std::vector<int>::const_iterator it2 = it+1; it2 != v.end(); ++it2)
+			for (std::vector<int>::const_iterator it2 = it + 1; it2 != v.end(); ++it2)
 			{
 				if (static_cast<unsigned int>(abs(*it - *it2)) < min)
 					min = static_cast<unsigned int>(abs(*it - *it2));
 			}
     	}
-		 return min;
+		return min;
 	}
 
 }
@@ -112,10 +112,10 @@ unsigned int Span::longestSpan(void) const
 
 void Span::addRange(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end)
 {
-	while (begin != end) 
-	{
-		Span::addNumber(*begin++);
-	}
+	std::vector<int>::iterator it = _data.end();
+	if (static_cast<unsigned long>(abs(end - begin)) > static_cast<unsigned long>((_size - _data.size())))
+	 	throw Span::TooBigRange();
+	_data.insert(it, begin, end);
 }
 
 
