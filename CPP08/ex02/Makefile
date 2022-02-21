@@ -1,6 +1,6 @@
-NAME = 
+NAME = prog
 
-SRCS =	
+SRCS = main.cpp	
 
 INC = "" 
 

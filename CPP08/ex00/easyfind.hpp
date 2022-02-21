@@ -4,6 +4,7 @@
 # include <iostream>
 # include <vector>
 # include <list>
+# include <algorithm>
 # include <stdexcept>
 
 template <typename T>

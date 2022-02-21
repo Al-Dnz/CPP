@@ -2,6 +2,8 @@
 
 int main(void)
 {
+
+    std::cout << "________________SUBJECTS_TESTS__________________" << std::endl;
     MutantStack<int> mstack;
     mstack.push(5);
     mstack.push(17);
@@ -23,7 +25,9 @@ int main(void)
         std::cout << *it << std::endl;
         ++it; 
     }
-    std::stack<int> s(mstack); 
+    std::stack<int> s(mstack);
+
+    std::cout << "\n________________PERSONAL_TESTS__________________" << std::endl;
     
     return 0;
 }
