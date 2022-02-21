@@ -8,7 +8,7 @@ Span::Span(unsigned int N):  _data(0), _size(N)
 {
 }
 
-Span::Span(): _data(0),  _size(0)
+Span::Span(): _data(0), _size(0)
 {
 }
 
@@ -43,7 +43,7 @@ Span &				Span::operator=( Span const & rhs )
 
 int &				Span::operator[](const unsigned int index)
 {
-	if (index < 0 || index >= _data.size())
+	if (index < 0 || index >= _size)
 		throw(Span::ArrayIndexError());
 	else
 		return _data[index];

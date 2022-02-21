@@ -13,10 +13,10 @@ class Span
 
 		std::vector<int>	_data;
 		unsigned int		_size;
+		Span();
 
 	public:
 
-		Span();
 		Span(unsigned int N = 0);
 		Span(Span const & src);
 		~Span();

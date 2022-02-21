@@ -18,23 +18,27 @@ class MutantStack: public std::stack<T>
 
 		MutantStack &		operator=( MutantStack const & rhs )
 		{	
-			this->c = rhs.c;
+			if (this != &rhs)
+				this->c = rhs.c;
 			return *this;
 		};
 
 		typedef typename std::stack<T>::container_type::iterator iterator;
 		typedef typename std::stack<T>::container_type::const_iterator const_iterator;
 		typedef typename std::stack<T>::container_type::reverse_iterator rev_iterator;
+		typedef typename std::stack<T>::container_type::const_reverse_iterator const_rev_iterator;
 
+		iterator			begin() {return this->c.begin();};
+		iterator			end() {return this->c.end();};
 
-		iterator begin() {return this->c.begin();};
-		iterator end() {return this->c.end();};
+		const_iterator		cbegin() {return this->c.cbegin();};
+		const_iterator		cend() {return this->c.cend();};
 
-		const_iterator cbegin() {return this->c.cbegin();};
-		const_iterator cend() {return this->c.cend();};
+		rev_iterator		rbegin() {return this->c.rbegin();};
+		rev_iterator 		rend() {return this->c.rend();};
 
-		rev_iterator rbegin() {return this->c.rbegin();};
-		rev_iterator rend() {return this->c.rend();};
+		const_rev_iterator	crbegin() {return this->c.crbegin();};
+		const_rev_iterator	crend() {return this->c.crend();};
 
 	private:
 

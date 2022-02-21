@@ -29,10 +29,12 @@ void	display_span(Span &span)
 	std::cout << span << std::endl ;
 }
 
-int	main(void)
+int		main(void)
 {
 	Span span(4);
 	display_span(span);
+	std::cout << std::endl;
+
 	std::cout << "add 4 number in span :" << std::endl;
 	try
 	{
@@ -46,6 +48,8 @@ int	main(void)
 		std::cerr << e.what() << '\n';
 	}
 	display_span(span);
+	std::cout << std::endl;
+
 	std::cout << "add one more in span :" << std::endl;
 	try
 	{
@@ -55,12 +59,15 @@ int	main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	std::cout << "span=> ";
-	std::cout << span << std::endl;
+	display_span(span);
+	std::cout << std::endl;
 
+	std::cout << "copy_span" << std::endl;
 	Span span2 = span;
 	std::cout << "span2=> ";
 	std::cout << span2 << std::endl;
+	std::cout << std::endl;
+
 	try
 	{
 		std::cout << "span2[1] => " << span2[1] << std::endl;
@@ -70,6 +77,7 @@ int	main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	std::cout << std::endl;
 
 	try
 	{
@@ -84,14 +92,20 @@ int	main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	std::cout << std::endl;
+
 	std::cout << "span inchanged : ";
 	std::cout << span << std::endl;
+	std::cout << std::endl;
 
 	Span span3(10);
-	// generate a vector of random number
-	std::srand(unsigned(std::time(nullptr)));
+	std::cout << "span3 created :" << std::endl;
+	std::cout << "	capacity     = " << span3.getMaxSize() << std::endl;
+	std::cout << "	current size = " << span3.getVecSize() << std::endl;
+	std::cout << std::endl;
+
 	std::vector<int> v;
-	generate_random_vector(v, 10);
+	generate_random_vector(v, 20);
 	display_vector(v);
 	std::cout << "span3 before addRange => ";
 	std::cout << span3 << std::endl;
@@ -105,6 +119,70 @@ int	main(void)
 	}
 	std::cout << "span3 after addRange => ";
 	std::cout << span3 << std::endl;
+	std::cout << std::endl;
+
+	generate_random_vector(v, 5);
+	display_vector(v);
+	std::cout << "span3 before addRange => ";
+	std::cout << span3 << std::endl;
+	try
+	{
+		span3.addRange(v.begin(), v.end());
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << "span3 after addRange => ";
+	std::cout << span3 << std::endl;
+	std::cout << "span3:" << std::endl;
+	std::cout << "	capacity     = " << span3.getMaxSize() << std::endl;
+	std::cout << "	current size = " << span3.getVecSize() << std::endl;
+	std::cout << std::endl;
+
+	Span span4(0);
+	std::cout << "span4:" << std::endl;
+	std::cout << "	capacity     = " << span4.getMaxSize() << std::endl;
+	std::cout << "	current size = " << span4.getVecSize() << std::endl;
+	try
+	{
+		span4.addNumber(4);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << std::endl;
+
+	Span span5(2);
+	span5.addNumber(4);
+	std::cout << "span5:" << std::endl;
+	std::cout << "	capacity     = " << span5.getMaxSize() << std::endl;
+	std::cout << "	current size = " << span5.getVecSize() << std::endl;
+	std::cout << "span5 => ";
+	std::cout << span5 << std::endl;
+	try
+	{
+		std::cout << "span5 shortest_span => "<< span5.shortestSpan()  << std::endl;
+		std::cout << "span5 longest_span => "<< span5.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	span5.addNumber(9);
+	std::cout << "span5 => ";
+	std::cout << span5 << std::endl;
+	try
+	{
+		std::cout << "span5 shortest_span => "<< span5.shortestSpan()  << std::endl;
+		std::cout << "span5 longest_span => "<< span5.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 	
 	return 0;
 }
