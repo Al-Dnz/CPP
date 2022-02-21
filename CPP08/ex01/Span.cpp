@@ -43,7 +43,7 @@ Span &				Span::operator=( Span const & rhs )
 
 int &				Span::operator[](const unsigned int index)
 {
-	if (index < 0 || index >= _size)
+	if (index < 0 || index >= _data.size())
 		throw(Span::ArrayIndexError());
 	else
 		return _data[index];
@@ -84,7 +84,7 @@ unsigned int Span::shortestSpan(void) const
 	else
 	{
 		 sort(v.begin(), v.end());
-		for (std::vector<int>::const_iterator it = v.begin(); it != v.end(); ++it) 
+		for (std::vector<int>::const_iterator it = v.begin(); it != v.end() - 1; ++it) 
 		{
 			for (std::vector<int>::const_iterator it2 = it + 1; it2 != v.end(); ++it2)
 			{
