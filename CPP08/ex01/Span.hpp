@@ -21,7 +21,7 @@ class Span
 		Span(Span const & src);
 		~Span();
 		Span &			operator=(Span const & rhs);
-		int & 			operator[](const unsigned int index);
+		int				operator[](const unsigned int index) const;
 
 		int				getMaxSize(void) const;
 		int				getVecSize(void) const;

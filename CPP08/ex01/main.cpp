@@ -4,11 +4,20 @@
 #include <algorithm>
 #include <random>
 
-void	generate_random_vector(std::vector<int> &vec, unsigned int n)
+void	generate_random_vector(std::vector<int> &vec, unsigned int n, unsigned int max = 100)
 {
+	srand (time(NULL));
 	vec.erase(vec.begin(), vec.end());
 	for (unsigned int i = 0; i < n; i++)
-		vec.push_back(rand() % 1000);
+		vec.push_back(rand() % max);
+}
+
+void	generate_random_vector2(std::vector<int> &vec, unsigned int n)
+{
+	srand (time(NULL));
+	vec.erase(vec.begin(), vec.end());
+	for (unsigned int i = 0; i < n; i++)
+		vec.push_back(rand());
 }
 
 void	display_vector(std::vector<int> const &vec)
@@ -183,5 +192,23 @@ int		main(void)
 		std::cerr << e.what() << '\n';
 	}
 	
+	std::cout << "\nbig span created" << std::endl;
+	unsigned int big_value = 10000;
+	Span big_span(big_value);
+	try
+	{
+		generate_random_vector2(v, big_value);
+		big_span.addRange(v.begin(), v.end());
+		std::cout << "big_span:" << std::endl;
+		std::cout << "	capacity     = " << big_span.getMaxSize() << std::endl;
+		std::cout << "	current size = " << big_span.getVecSize() << std::endl;
+		std::cout << "big_span shortest_span => "<< big_span.shortestSpan()  << std::endl;
+		std::cout << "big_span longest_span => "<< big_span.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
 	return 0;
 }

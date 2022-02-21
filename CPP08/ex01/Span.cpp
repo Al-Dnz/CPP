@@ -41,7 +41,7 @@ Span &				Span::operator=( Span const & rhs )
 	return *this;
 }
 
-int &				Span::operator[](const unsigned int index)
+int 				Span::operator[](const unsigned int index) const
 {
 	if (index < 0 || index >= _data.size())
 		throw(Span::ArrayIndexError());
